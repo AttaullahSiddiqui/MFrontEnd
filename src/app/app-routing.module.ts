@@ -1,8 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { LayoutComponent } from '@app/core';
 
-const routes: Routes = [];
+const routes: Routes = [{
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+//   path: '',
+//   component: LayoutComponent,
+//   children: [{
+//     path: '',
+//     loadChildren: './featured-module/private/private.module#PrivateModule'
+//   }]
+// }, {
+  path: '',
+  loadChildren: () => import('./featured-module/public/public.module').then(m => m.PublicModule)
+},{
+  path: '**',
+  redirectTo: 'not-found'
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
