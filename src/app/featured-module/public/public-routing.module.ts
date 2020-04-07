@@ -10,14 +10,17 @@ const routes: Routes = [{
   path: 'login',
   component: LoginComponent
 }
-,{
+,
+{
   path: 'compeleteprofile',
   component: CompleteProfileComponent
-},
-,{
-  path: 'phoneverification',
+}
+,
+{
+  path: 'phone-verification',
   component: PhoneVerficationComponent
 },
+
 {
   path: 'not-found',
   component: NotFound404Component
