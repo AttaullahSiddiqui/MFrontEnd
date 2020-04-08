@@ -11,5 +11,13 @@ export class SideMenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  openNav() {
+    document.getElementById("mySidepanel").style.width = "250px";
+  }
+  
+  closeNav() {
+    document.getElementById("mySidepanel").style.width = "0";
+  }
+ 
 
 }

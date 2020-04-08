@@ -1,0 +1,51 @@
+/*------------------------------------------------------------ */
+.icon-bar {
+  width: 90px;
+  height: 100% !important;
+  background-color: #ffff;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.logo {
+    padding: 15px 20px 10px 15px ;
+  /* margin-bottom: 90px; */
+}
+.list {
+    margin-bottom: 55px;
+    padding: 15px 33px 10px 32px;
+}
+.active , .side-item{
+    margin-bottom: 10px;
+}
+.side-link {
+    padding: 15px 30px 10px 25px ;
+}
+.icon-bar .active > .side-link{
+    border-left: 4px solid #F0A30D;  
+}
+
+/* 
+
+.side-item:hover::after{
+    width:100%;
+}
+
+.side-link{
+    padding:15px;
+    height: 3px;
+    transition:0.2s;
+}
+
+.icon-bar .side-link {
+    color:#000;
+    font-weight:bold;
+    font-size:40px;
+}
+
+ 
+*/

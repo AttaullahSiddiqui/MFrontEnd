@@ -5,6 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [{
   path: '',
   loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+},{
+  path: 'payment',
+  loadChildren: () => import('./payment/payment.module').then(m => m.PaymentModule)
 }];
 
 
