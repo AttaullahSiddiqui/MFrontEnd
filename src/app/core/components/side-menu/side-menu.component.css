@@ -28,24 +28,3 @@
 .icon-bar .active > .side-link{
     border-left: 4px solid #F0A30D;  
 }
-
-/* 
-
-.side-item:hover::after{
-    width:100%;
-}
-
-.side-link{
-    padding:15px;
-    height: 3px;
-    transition:0.2s;
-}
-
-.icon-bar .side-link {
-    color:#000;
-    font-weight:bold;
-    font-size:40px;
-}
-
- 
-*/

@@ -1,0 +1,58 @@
+.container-fluid {
+    background-color: #F7F7F7;
+}
+.edited-row {
+    margin: 2px 72px 2px 149px;
+}
+
+.title{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.main-title{
+    font-size: 45px;
+    font-weight: bold;
+}
+.link-tag {
+    font-size: 20px;
+    color: orange !important;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+.table-img {
+    padding: 2px 23px 2px 20px;
+}
+.chart-img {
+    padding: 2px 2px 2px 5px;
+}
+/*---------------------------------------table-------------------------------*/
+.table-responsive {
+    background-color: white;
+}
+th{
+    color: rgb(206, 206, 206);
+    text-transform: uppercase;
+}
+.icons {
+    padding: 10px;
+}
+
+/**-----------------media queriesss----------------/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .edited-row {
+        /* margin-left: 80px; */
+        margin-right: 1px;
+    } 
+    .main-title {
+        font-size: 35px;
+    }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px)  {
+    .edited-row {
+        margin-left: 80px;
+    }
+}

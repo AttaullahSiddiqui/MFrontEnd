@@ -8,6 +8,10 @@ const routes: Routes = [{
 },{
   path: 'payment',
   loadChildren: () => import('./payment/payment.module').then(m => m.PaymentModule)
+},
+{
+  path: 'direct-referrals',
+  loadChildren: () => import('./direct-referrals/direct-referrals.module').then(m => m.DirectReferralsModule)
 }];
 
 
