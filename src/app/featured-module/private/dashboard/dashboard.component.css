@@ -1,0 +1,82 @@
+.debititem{
+    color: white;
+    background-color: #ff5900;
+    padding: 3px 12px 4px ;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.debititem1{
+    color: white;
+    background-color: #54bc77;
+    padding: 3px 12px 4px ;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.nav-link{
+    background-color: white;
+    padding-left: 10px;
+    padding-right:10px ;
+}
+#pills-home-tab{
+    color: gray;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+#pills-home-tab.active {
+  color: black;
+  border-bottom: 2px solid orange;
+  background-color: white;
+  border-radius: 0;
+}
+
+#pills-profile-tab{
+    color: gray;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+#pills-profile-tab.active {
+    color: black;
+  border-bottom: 2px solid orange;
+  background-color: white;
+  border-radius: 0;
+ 
+}
+#pills-contact-tab{
+    color: gray;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+#pills-contact-tab.active {
+    color: black;
+  border-bottom: 2px solid orange;
+  background-color: white;
+  border-radius: 0;
+
+}
+  
+
+.table-responsive {
+    background-color: white;
+    margin-left: -18px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    .smalledit1 {
+        width: 77%;
+      
+  
+}
+}
+
+  
