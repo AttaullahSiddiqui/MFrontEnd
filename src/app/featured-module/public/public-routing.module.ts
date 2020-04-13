@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
 import { PhoneVerficationComponent } from './phone-verfication/phone-verfication.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -19,6 +20,10 @@ const routes: Routes = [{
 {
   path: 'phone-verification',
   component: PhoneVerficationComponent
+},
+{
+  path: 'signup',
+  component: SignupComponent
 },
 
 {

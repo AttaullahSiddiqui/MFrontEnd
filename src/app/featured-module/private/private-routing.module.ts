@@ -12,6 +12,12 @@ const routes: Routes = [{
 {
   path: 'direct-referrals',
   loadChildren: () => import('./direct-referrals/direct-referrals.module').then(m => m.DirectReferralsModule)
+},{
+  path: 'profile',
+  loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+},{
+  path: 'withdraw',
+  loadChildren: () => import('./withdraw/withdraw.module').then(m => m.WithdrawModule)
 }];
 
 
