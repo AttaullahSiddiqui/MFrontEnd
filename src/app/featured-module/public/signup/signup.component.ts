@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup , FormBuilder, Validators } from '@angular/forms';
+import { HttpService } from '@app/core';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  signupForm: FormGroup
+  isFormSubmit: boolean = false;
+  isRequestPending : boolean = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpService
+  ) { }
 
   ngOnInit(): void {
+    this.signupForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
   }
+
+  register(valid, value){
+    // this.isFormSubmit = true;
+    // if(!valid){
+    //   return;
+    // }
+    // this.isRequestPending = true;
+    // this.http.post('', value).then(success =>{
+    //   this.resetForm();
+    //   this.isRequestPending = false;
+    // }).catch((err: Response) => {
+    //   this.isRequestPending = false;
+    // })
+  }
+
+  resetForm(){
+    this.signupForm.reset();
+    this.isFormSubmit = false;
+  }
+
+
 
 }

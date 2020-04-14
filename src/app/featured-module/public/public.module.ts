@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PublicRoutingModule } from './public-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -13,7 +14,9 @@ import { NotFound404Component } from './not-found404/not-found404.component';
   declarations: [LoginComponent, SignupComponent, CompleteProfileComponent, PhoneVerficationComponent, NotFound404Component],
   imports: [
     CommonModule,
-    PublicRoutingModule
+    PublicRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule
   ]
 })
 export class PublicModule { }
