@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+.fontupdate{
+ font-size: 12px;
+}
+
+.heading1{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 900px) {
+    .paddingupdate {
+      padding-left: 140px;
+      padding-right: 40px;
+      
+    }
+    .hide{
+       display: none;
+      }
+  }
+
