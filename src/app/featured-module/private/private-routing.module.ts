@@ -15,7 +15,12 @@ const routes: Routes = [{
 },{
   path: 'profile',
   loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
-},{
+},
+{
+  path: 'company',
+  loadChildren: () => import('./company/company.module').then(m => m.CompanyModule)
+},
+{
   path: 'withdraw',
   loadChildren: () => import('./withdraw/withdraw.module').then(m => m.WithdrawModule)
 }];
