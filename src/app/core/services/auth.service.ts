@@ -22,8 +22,6 @@ export class AuthService implements CanActivate {
     }
     return new Promise((resolve, reject) => {
       this.http.get('user/me').then( (result: Response) => {
-        console.log("Activated route data -----", next);
-        console.log("state data -----", state);
         let user = result.body.data;
         if(user.isProfileComplete && user.isMobileVerified){
           if(state.url == '/compelete-profile' || state.url == '/phone-verification'){

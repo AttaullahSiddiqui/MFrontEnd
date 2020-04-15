@@ -9,27 +9,47 @@
 
         <div class="col-md-6 p-5" style="background-color: #f7f7f7; padding-top:80px;">
             
-            <form class="p-4" style="background-color: #f7f7f7; border: none;" action="#!">
+            <form [formGroup]="loginForm" class="p-4" style="background-color: #f7f7f7; border: none;">
 
                 <p class="h4 font-weight-bold mb-4 text-center">Already have an Account</p>
             
                 <p class="text-center text-dark" style="color: #e5e5e5;">Nice to see you again !</p>
             
-                <label class=" font-weight-bold" for="exampleFormControlInput1">Email address</label>
-                <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder=" E-mail">
+                <label class=" font-weight-bold" for="_email1">Email address</label>
+                <input type="email" id="_email1" formControlName="email"
+                [ngClass]="{'red-validation': isFormSubmit && (loginForm.controls.email.errors?.required || loginForm.controls.email.errors?.email)}"
+                class="form-control" placeholder=" E-mail">
+                <div *ngIf="isFormSubmit">
+                    <label class="red-text" *ngIf="loginForm.controls.email.errors?.required">Email is required</label>
+                    <label class="red-text" *ngIf="loginForm.controls.email.errors?.email">In-valid Email</label>
+                </div>
             
                 
-                <label class="text-left font-weight-bold " for="exampleInputPassword1">Your Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" class="form-control mb-3" placeholder=" 6+ characters">
-            
-                <p class="text-warning font-weight-bold">Forgot password</p>
+                <label class="text-left font-weight-bold mt-4" for="_password1">Your Password</label>
+                <input type="password" formControlName="password" 
+                [ngClass]="{'red-validation': isFormSubmit && loginForm.controls.password.errors?.required }"
+                class="form-control" id="_password1" class="form-control" placeholder=" 6+ characters">
+                <div *ngIf="isFormSubmit">
+                    <label class="red-text" *ngIf="loginForm.controls.password.errors?.required">Password is required</label>
+                </div>
+
+                <div *ngIf="serverMsg" class="mt-4">
+                    <label class="red-text">
+                        {{serverMsg}}
+                    </label>
+                </div>
+
+                <p class="text-warning font-weight-bold mt-3">Forgot password</p>
                 <div class="custom-control custom-checkbox mr-sm-2 p-4">
                     <input type="checkbox" class="custom-control-input " id="customControlAutosizing">
                     <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
                     </div>
                 
                 
-                    <button style="background-color: #2c2c2c;" class="btn btn-block text-white pt-2 pb-2 mt-3" type="submit"><b>Login</b></button>
+                    <button (click)="!isRequestPending && signIn(loginForm.valid, loginForm.value)" style="background-color: #2c2c2c;" class="btn btn-block text-white pt-2 pb-2 mt-3" type="submit">
+                        <b *ngIf="!isRequestPending">Login</b>
+                        <i  *ngIf="isRequestPending" class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>
+                    </button>
                     <div class="text-center mt-2 mb-2"> Or</div>
                     <button style="background-color: #4267b2;" class="btn  btn-block text-white pt-2 pb-2" type="submit" (click)="signInWithFB()"><b>Continue with Facebook</b></button>
                 
