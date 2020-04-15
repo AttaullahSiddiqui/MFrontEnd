@@ -20,11 +20,24 @@ export class HttpService {
 
   getHeaders(isMultiPartFormData?: boolean): HttpHeaders {
     const authorizationToken = this.utility.getCookie('authToken');
-    const headers = new HttpHeaders({
-      'authorization': authorizationToken || ''
-    });
+    let options = {
+      'Content-Type': 'application/json',
+    }
+    if(authorizationToken){
+      options['authorization'] = 'Bearer '+authorizationToken;
+    }
+    const headers = new HttpHeaders(options);
     return headers;
   };
+
+  async getCountryCodeWithFlag(): Promise<any> {
+    try {
+      let result = await this.http.get<any>('https://restcountries.eu/rest/v2/all', {observe: 'response'}).toPromise();
+      return result.body;
+    } catch (error) {
+      return Promise.reject(this.handleError(error));
+    }
+  }
 
   async get(url: string): Promise<Response> {
     try {

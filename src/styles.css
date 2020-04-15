@@ -1,2 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body ,html{margin:0}
+.red-validation{
+    border-color: red !important;
+}
+.red-text{
+    color: red !important;
+}

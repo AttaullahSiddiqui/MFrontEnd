@@ -1,25 +1,44 @@
-<form class=" p-4" action="#!">
+<form [formGroup]="signupForm" class=" p-4" action="#!">
 
     <p class="h4 font-weight-bold mb-4 text-center">You'r new here?</p>
 
     <p class="text-center text-dark" style="color: #e5e5e5;">it's a nice opportunity to earn money <br> from home here!</p>
 
-    
 
+    <label class=" font-weight-bold" for="_email">Email address</label>
+    <input type="email" formControlName="email"
+    [ngClass]="{'red-validation': isFormSubmit && (signupForm.controls.email.errors?.required || signupForm.controls.email.errors?.email)}"
+    id="_email" class="form-control" placeholder="E-mail" autocomplete="off">
+    <div *ngIf="isFormSubmit">
+        <label class="red-text" *ngIf="signupForm.controls.email.errors?.required">Email is required</label>
+        <label class="red-text" *ngIf="signupForm.controls.email.errors?.email">In-valid Email</label>
+    </div>
 
-    <label class=" font-weight-bold" for="exampleFormControlInput1">Email address</label>
-    <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder=" E-mail">
+    
+    <label class="text-left font-weight-bold mt-4" for="_password">Your Password</label>
+    <input type="password" formControlName="password" 
+    [ngClass]="{'red-validation': isFormSubmit && (signupForm.controls.password.errors?.required || signupForm.controls.password.errors?.minlength)}"
+    class="form-control" id="_password" placeholder="  6+ characters" autocomplete="off">
+    <div *ngIf="isFormSubmit">
+        <label class="red-text" *ngIf="signupForm.controls.password.errors?.required">Password is required</label>
+        <label class="red-text" *ngIf="signupForm.controls.password.errors?.minlength">Minimum 6 characters</label>
+    </div>
 
+    <div *ngIf="serverMsg" class="mt-4">
+        <label class="red-text">
+            {{serverMsg}}
+        </label>
+    </div>
     
-    <label class="text-left font-weight-bold" for="exampleInputPassword1">Your Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" class="form-control mb-5" placeholder="  6+ characters">
     
-    
-    <p class="mb-5" style="margin-bottom: 50px; font-size: 15px;">By clicking “Create account”,you agree to our <span class="text-warning font-weight-bold">Terms</span>, <span class=" font-weight-bold text-warning">Data Policy</span>
+    <p class="mt-5" style="margin-bottom: 50px; font-size: 15px;">By clicking “Create account”,you agree to our <span class="text-warning font-weight-bold">Terms</span>, <span class=" font-weight-bold text-warning">Data Policy</span>
     and <span class="text-warning font-weight-bold">Cookies Policy</span>.You may recive SMS Notifications from us and can opt out any time
     </p>
 
-    <button class="btn btn-warning btn-block text-white pt-2 pb-2" type="submit"><b>Create account</b></button>
+    <button (click)="!isRequestPending && register(signupForm.valid, signupForm.value)" class="btn btn-warning btn-block text-white pt-2 pb-2" type="submit">
+        <b *ngIf="!isRequestPending">Create account</b>
+        <i  *ngIf="isRequestPending" class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>
+    </button>
 
 
 </form>

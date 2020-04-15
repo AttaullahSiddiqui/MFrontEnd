@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LayoutComponent } from '@app/core';
+import { LayoutComponent, AuthService } from '@app/core';
 
 const routes: Routes = [{
     path: '',
@@ -11,6 +11,7 @@ const routes: Routes = [{
   {
   path: '',
   component: LayoutComponent,
+  canActivate: [AuthService],
   children: [{
     path: '',
     loadChildren: () => import('./featured-module/private/private.module').then(m => m.PrivateModule)

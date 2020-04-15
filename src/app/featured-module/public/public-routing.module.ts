@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthService } from '@app/core';
+
 import { LoginComponent } from './login/login.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
@@ -13,13 +15,15 @@ const routes: Routes = [{
 }
 ,
 {
-  path: 'compeleteprofile',
-  component: CompleteProfileComponent
+  path: 'compelete-profile',
+  component: CompleteProfileComponent,
+  canActivate: [AuthService]
 }
 ,
 {
   path: 'phone-verification',
-  component: PhoneVerficationComponent
+  component: PhoneVerficationComponent,
+  canActivate: [AuthService]
 },
 {
   path: 'signup',
