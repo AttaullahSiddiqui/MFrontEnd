@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '@app/core';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-complete-profile',
   templateUrl: './complete-profile.component.html',
@@ -11,13 +12,16 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 })
 export class CompleteProfileComponent implements OnInit {
 
+
   profileForm: FormGroup
   isFormSubmit: boolean = false;
   isRequestPending : boolean = false;
   serverMsg = "";
   countries = [];
-  countryCodesWithFlags = [];
+  countryCodesWithFlags: any[] = [];
   cities = [];
+
+  
 
 
   constructor(
@@ -40,6 +44,8 @@ export class CompleteProfileComponent implements OnInit {
       }
      })
      this.getCountryCodeWithFlag();
+    
+    
   }
 
   createProfileForm(){
@@ -55,8 +61,9 @@ export class CompleteProfileComponent implements OnInit {
   getCountriesList(){
     this.http.get('country/list').then(success =>{
       this.countries = success.body.data;
+      console.log("Countries List -----",this.countries);
     }).catch((err: Response) => {
-      console.log("error ----",err);
+      console.log("error countries ----",err);
       alert("Error in fetching countries");
     })
   }
@@ -77,21 +84,32 @@ export class CompleteProfileComponent implements OnInit {
       console.log("Data ----",data);
     })
   }
-
+  
   saveProfile(valid, value){
     this.isFormSubmit = true;
     if(!valid){
       return;
     }
-    this.isRequestPending = true;
-    this.http.post('user/complete-profile', value).then(success =>{
-      this.isRequestPending = false;
-      this.router.navigate(['/phone-verification'])
-    }).catch((err: Response) => {
-      this.isRequestPending = false;
-      this.serverMsg = "Unexpected error";
-      console.log("error ----",err);
-    })
+    console.log(value);
+    // this.isRequestPending = true;
+    // this.http.post('user/complete-profile', value).then(success =>{
+    //   this.isRequestPending = false;
+    //   this.router.navigate(['/phone-verification'])
+    // }).catch((err: Response) => {
+    //   this.isRequestPending = false;
+    //   this.serverMsg = "Unexpected error";
+    //   console.log("error ----",err);
+    // })
   }
+
+  onCountryChange(event){
+    this.profileForm.patchValue({
+      phoneCountryCode: event.dialCode
+    })     
+
+  }
+  
+ 
+
 
 }

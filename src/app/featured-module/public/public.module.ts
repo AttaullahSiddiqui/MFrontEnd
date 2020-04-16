@@ -8,7 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
 import { PhoneVerficationComponent } from './phone-verfication/phone-verfication.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
-
+import {Ng2TelInputModule} from 'ng2-tel-input';
 
 @NgModule({
   declarations: [LoginComponent, SignupComponent, CompleteProfileComponent, PhoneVerficationComponent, NotFound404Component],
@@ -16,7 +16,8 @@ import { NotFound404Component } from './not-found404/not-found404.component';
     CommonModule,
     PublicRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2TelInputModule
   ]
 })
 export class PublicModule { }

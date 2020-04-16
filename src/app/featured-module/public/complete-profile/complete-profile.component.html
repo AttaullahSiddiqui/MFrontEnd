@@ -6,67 +6,71 @@
       style="width: 100%; margin-top: 120px; margin-left: 20px;" >
         <p class="h4 font-weight-bold mb-4 text-center">You'r almost there!</p>
           
-        <label class=" font-weight-bold" for="_fullName">FULL NAME</label>
-        <input type="email" id="_fullName" formControlName="fullName"
-        class="form-control mb-4" placeholder=" Full Name">
+        <label class=" font-weight-bold">FULL NAME</label>
+        <input type="email" formControlName="fullName"
+        class="form-control mb-2" placeholder=" Full Name"
+        [ngClass]="{'red-validation': isFormSubmit && (profileForm.controls.fullName.errors?.required)}">
+        <div *ngIf="isFormSubmit">
+          <label class="red-text mb-2" *ngIf="profileForm.controls.fullName.errors?.required">Full Name is required</label>
+      </div>
 
-        <label class=" font-weight-bold " for="exampleFormControlInput1">PHONE NUMBER</label>
-        <div class="input-group bg-light mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text " id="basic-addon1" style="background-color: white; border-right: none;">
-              <svg width="58" height="36"  viewBox="0 0 58 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g filter="url(#filter0_d)">
-                  <path d="M42 14H16V32H42V14Z" fill="white"/>
-                  <path d="M42 14H22.5V32H42V14Z" fill="#01411C"/>
-                  <path d="M32.25 28.4C35.1219 28.4 37.45 25.9823 37.45 23C37.45 20.0177 35.1219 17.6 32.25 17.6C29.3782 17.6 27.05 20.0177 27.05 23C27.05 25.9823 29.3782 28.4 32.25 28.4Z" fill="white"/>
-                  <path d="M36.746 25.4727C38.7136 23.6565 38.8908 20.5277 37.1418 18.4844C35.3929 16.4412 32.38 16.2571 30.4124 18.0734C28.4448 19.8896 28.2676 23.0184 30.0165 25.0616C31.7655 27.1049 34.7784 27.289 36.746 25.4727Z" fill="#01411C"/>
-                  <path d="M34.1461 18.9593L36.3365 21.5183L33.116 20.785L36.1365 19.4125L34.4698 22.3665L34.1461 18.9593Z" fill="white"/>
-                  </g>
-                  <defs>
-                  <filter id="filter0_d" x="0" y="0" width="58" height="50" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                  <feOffset dy="2"/>
-                  <feGaussianBlur stdDeviation="8"/>
-                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                  </filter>
-                  </defs>
-              </svg>
-              <svg   width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path opacity="0.8" d="M1 1L2.33333 2.33333L4.29289 4.29289C4.68342 4.68342 5.31658 4.68342 5.70711 4.29289L7.66667 2.33333L9 1" stroke="black" stroke-width="0.7" stroke-linecap="round"/>
-              </svg>
-              <span style="margin-left: 10px; margin-right: 10px; color: black;">051</span>
-              <svg width="1" height="32" viewBox="0 0 1 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd" d="M0 32V0H1V32H0Z" fill="black"/>
-              </svg>
-            </span>
-          </div>
+
+        <label class=" font-weight-bold " >PHONE NUMBER</label>
+        <!-- <div class="input-group"> -->
+            <div class="col-12">
+              <input type="text" id="name" ng2TelInput   (countryChange)="onCountryChange($event)"
+              class="form-control" formControlName="phoneNo" 
+              [ng2TelInputOptions]="{initialCountry: 'pk',separateDialCode: true }" 
+              [ngClass]="{'red-validation': isFormSubmit && (profileForm.controls.phoneNo.errors?.required)}"/>
+            </div>
+            <!-- <div class="col-7">
           <input style="border-left: none;" type="text" formControlName="phoneNo"
-           class="form-control" placeholder="  (051) 555 55 555" aria-label="Username" aria-describedby="basic-addon1">
+           class="form-control mb-2" placeholder="  (051) 555 55 555"  
+           [ngClass]="{'red-validation': isFormSubmit && (profileForm.controls.phoneNo.errors?.required)}">
+          </div> -->
+           <!-- </div> -->
+        <div class="row">
+        <div class="col-4">
+          <div *ngIf="isFormSubmit">
+            <label class="red-text mb-2" *ngIf="profileForm.controls.phoneCountryCode.errors?.required">Code is required</label>
+          </div>
+         
         </div>
-
+        <div class="col-4">
+          <div *ngIf="isFormSubmit">
+            <label class="red-text mb-2 " *ngIf="profileForm.controls.phoneNo.errors?.required">Phone no. is required</label>
+        </div>
+        </div>
+      </div>
         <div class="form-row">
           <div class="col mr-2">
-            <label  class=" font-weight-bold "  for="_country">COUNTRY</label>
-            <select class="form-control" id="_country" formControlName="country">
+            <label  class=" font-weight-bold ">COUNTRY</label>
+            <select class="form-control mb-2" formControlName="country"
+            [ngClass]="{'red-validation': isFormSubmit && profileForm.value.country == -1 }">
                 <option value="-1">Choose from list</option>
-                <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+                <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
             </select>
+            <div *ngIf="isFormSubmit && (profileForm.value.country == -1) "> 
+              <label class="red-text">Please select Country</label> 
+            </div>
             
           </div>
           <div class="col ml-2">
-              <label class=" font-weight-bold " for="_city">CITY</label>
-              <select class="form-control" id="_city" formControlName="city">
+              <label class=" font-weight-bold " >CITY</label>
+              <select class="form-control mb-2" formControlName="city"
+              [ngClass]="{'red-validation': isFormSubmit && profileForm.value.city == -1 }">
                   <option value="-1">Choose from list</option>
                   <option *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
               </select>
+              <div *ngIf="isFormSubmit && (profileForm.value.city == -1) "> 
+                <label class="red-text">Please select City</label> 
+              </div>
             
           </div>
         </div>
           
-        <button class="btn btn-warning btn-block text-white mt-5 pt-2 pb-2" type="submit">
+        <button class="btn btn-warning btn-block text-white mt-5 pt-2 pb-2" type="submit"
+        >
           <b *ngIf="!isRequestPending">Next Step</b>
           <i  *ngIf="isRequestPending" class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>
         </button>
@@ -78,7 +82,6 @@
           </g>
           </svg>
         </a>
-
       </form>
     </div>
     <div class="col-md-2 hide"></div>
@@ -87,3 +90,13 @@
 
 
 
+<!-- <select class="form-control " formControlName="phoneCountryCode"
+              [ngClass]="{'red-validation': isFormSubmit && profileForm.value.phoneCountryCode == -1 }">
+                  <option value="-1">Select</option>
+                  <option *ngFor="let country of countryCodesWithFlags" [value]="country.callingCodes[0]">
+                    <img [src]="country.flag">
+                    {{country.name}} {{country.callingCodes[0]}}</option>
+              </select> -->
+               <!-- <div *ngIf="isFormSubmit && (profileForm.value.phoneCountryCode == -1) "> 
+            <label class="red-text">Code is required</label> 
+          </div> -->

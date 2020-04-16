@@ -12,11 +12,11 @@
                 <input type="text" class="form-control" formControlName="verficationCode" id="_phoneVerification"
                  class="form-control mb-3" placeholder="  ********">
                  <div>
-                    <label *ngIf="isFormSubmit && phoneVerificationForm.controls.verficationCode.errors?.required">Verification code is required</label>
-                    <label *ngIf="phoneVerificationForm.value.verficationCode && serverMsg">{{serverMsg}}</label>
+                    <label  class="red-text mb-2" *ngIf="isFormSubmit && phoneVerificationForm.controls.verficationCode.errors?.required">Verification code is required</label>
+                    <label  class="red-text" *ngIf="phoneVerificationForm.value.verficationCode && serverMsg">{{serverMsg}}</label>
                  </div>
                 
-                <div class="text-warning mb-5" style="font-size: 12px;" >
+                <div class="text-warning mb-5 mt-1" style="font-size: 12px; cursor: pointer;" >
                     <b (click)="resendVerficationCode()">Send new code </b>
                 </div>
 
