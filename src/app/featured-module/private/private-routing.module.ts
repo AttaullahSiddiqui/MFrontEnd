@@ -23,6 +23,9 @@ const routes: Routes = [{
 {
   path: 'withdraw',
   loadChildren: () => import('./withdraw/withdraw.module').then(m => m.WithdrawModule)
+},{
+  path: 'plan',
+  loadChildren: () => import('./plans/plans.module').then(m => m.PlansModule)
 }];
 
 
