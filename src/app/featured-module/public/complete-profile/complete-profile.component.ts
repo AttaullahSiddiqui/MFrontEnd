@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup , FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '@app/core';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -42,10 +42,7 @@ export class CompleteProfileComponent implements OnInit {
           city : -1
         })
       }
-     })
-     this.getCountryCodeWithFlag();
-    
-    
+     });
   }
 
   createProfileForm(){
@@ -53,17 +50,22 @@ export class CompleteProfileComponent implements OnInit {
       fullName: ['', Validators.required],
       phoneCountryCode: ['92', Validators.required],
       phoneNo: ['', Validators.required],
-      country: [-1, Validators.required],
-      city: [-1, Validators.required]
+      country: [-1, [Validators.required, this.validateCountryCity] ],
+      city: [-1, [Validators.required, this.validateCountryCity] ]
     })
   };
+
+  validateCountryCity(control: AbstractControl){
+    if (control.value == -1 ) {
+      return { validId: true };
+    }
+    return null;
+  }
 
   getCountriesList(){
     this.http.get('country/list').then(success =>{
       this.countries = success.body.data;
-      console.log("Countries List -----",this.countries);
     }).catch((err: Response) => {
-      console.log("error countries ----",err);
       alert("Error in fetching countries");
     })
   }
@@ -71,35 +73,25 @@ export class CompleteProfileComponent implements OnInit {
   getCities(name){
     this.http.get('country/cities?name='+name).then(success =>{
       this.cities = success.body.data;
-      console.log("Cities List -----",this.cities);
     }).catch((err: Response) => {
       console.log("error ----",err);
       alert("Error in fetching cities");
     })
   };
-
-  getCountryCodeWithFlag(){
-    this.http.getCountryCodeWithFlag().then(data => {
-      this.countryCodesWithFlags = data;
-      console.log("Data ----",data);
-    })
-  }
   
   saveProfile(valid, value){
     this.isFormSubmit = true;
     if(!valid){
       return;
     }
-    console.log(value);
-    // this.isRequestPending = true;
-    // this.http.post('user/complete-profile', value).then(success =>{
-    //   this.isRequestPending = false;
-    //   this.router.navigate(['/phone-verification'])
-    // }).catch((err: Response) => {
-    //   this.isRequestPending = false;
-    //   this.serverMsg = "Unexpected error";
-    //   console.log("error ----",err);
-    // })
+    this.isRequestPending = true;
+    this.http.post('user/complete-profile', value).then(success =>{
+      this.isRequestPending = false;
+      this.router.navigate(['/phone-verification'])
+    }).catch((err: Response) => {
+      this.isRequestPending = false;
+      this.serverMsg = "Unexpected error";
+    })
   }
 
   onCountryChange(event){

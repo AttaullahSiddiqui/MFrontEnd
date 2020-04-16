@@ -12,45 +12,27 @@
         [ngClass]="{'red-validation': isFormSubmit && (profileForm.controls.fullName.errors?.required)}">
         <div *ngIf="isFormSubmit">
           <label class="red-text mb-2" *ngIf="profileForm.controls.fullName.errors?.required">Full Name is required</label>
-      </div>
+        </div>
 
 
-        <label class=" font-weight-bold " >PHONE NUMBER</label>
-        <!-- <div class="input-group"> -->
-            <div class="col-12">
-              <input type="text" id="name" ng2TelInput   (countryChange)="onCountryChange($event)"
-              class="form-control" formControlName="phoneNo" 
-              [ng2TelInputOptions]="{initialCountry: 'pk',separateDialCode: true }" 
-              [ngClass]="{'red-validation': isFormSubmit && (profileForm.controls.phoneNo.errors?.required)}"/>
-            </div>
-            <!-- <div class="col-7">
-          <input style="border-left: none;" type="text" formControlName="phoneNo"
-           class="form-control mb-2" placeholder="  (051) 555 55 555"  
-           [ngClass]="{'red-validation': isFormSubmit && (profileForm.controls.phoneNo.errors?.required)}">
-          </div> -->
-           <!-- </div> -->
-        <div class="row">
-        <div class="col-4">
-          <div *ngIf="isFormSubmit">
-            <label class="red-text mb-2" *ngIf="profileForm.controls.phoneCountryCode.errors?.required">Code is required</label>
-          </div>
-         
+        <label class="font-weight-bold " style="display: block;">PHONE NUMBER</label>
+        <input type="text" id="name" ng2TelInput (countryChange)="onCountryChange($event)"
+        class="form-control" formControlName="phoneNo" 
+        [ng2TelInputOptions]="{initialCountry: 'pk',separateDialCode: true }" 
+        [ngClass]="{'red-validation': isFormSubmit && (profileForm.controls.phoneNo.errors?.required)}"/>
+        <div *ngIf="isFormSubmit">
+          <label class="red-text mb-2 " *ngIf="profileForm.controls.phoneNo.errors?.required">Phone no. is required</label>
         </div>
-        <div class="col-4">
-          <div *ngIf="isFormSubmit">
-            <label class="red-text mb-2 " *ngIf="profileForm.controls.phoneNo.errors?.required">Phone no. is required</label>
-        </div>
-        </div>
-      </div>
+        
         <div class="form-row">
           <div class="col mr-2">
             <label  class=" font-weight-bold ">COUNTRY</label>
             <select class="form-control mb-2" formControlName="country"
             [ngClass]="{'red-validation': isFormSubmit && profileForm.value.country == -1 }">
                 <option value="-1">Choose from list</option>
-                <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                <option *ngFor="let country of countries" [value]="country">{{country}}</option>
             </select>
-            <div *ngIf="isFormSubmit && (profileForm.value.country == -1) "> 
+            <div *ngIf="isFormSubmit && profileForm.value.country == -1 "> 
               <label class="red-text">Please select Country</label> 
             </div>
             
@@ -62,15 +44,14 @@
                   <option value="-1">Choose from list</option>
                   <option *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
               </select>
-              <div *ngIf="isFormSubmit && (profileForm.value.city == -1) "> 
+              <div *ngIf="isFormSubmit && profileForm.value.city == -1 "> 
                 <label class="red-text">Please select City</label> 
               </div>
             
           </div>
         </div>
           
-        <button class="btn btn-warning btn-block text-white mt-5 pt-2 pb-2" type="submit"
-        >
+        <button class="btn btn-warning btn-block text-white mt-5 pt-2 pb-2" type="submit">
           <b *ngIf="!isRequestPending">Next Step</b>
           <i  *ngIf="isRequestPending" class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>
         </button>
@@ -87,16 +68,3 @@
     <div class="col-md-2 hide"></div>
     <div class="col-md-2 hide" style="background-color:#f7f7f7;"> </div>
 </div>
-
-
-
-<!-- <select class="form-control " formControlName="phoneCountryCode"
-              [ngClass]="{'red-validation': isFormSubmit && profileForm.value.phoneCountryCode == -1 }">
-                  <option value="-1">Select</option>
-                  <option *ngFor="let country of countryCodesWithFlags" [value]="country.callingCodes[0]">
-                    <img [src]="country.flag">
-                    {{country.name}} {{country.callingCodes[0]}}</option>
-              </select> -->
-               <!-- <div *ngIf="isFormSubmit && (profileForm.value.phoneCountryCode == -1) "> 
-            <label class="red-text">Code is required</label> 
-          </div> -->

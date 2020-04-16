@@ -30,15 +30,6 @@ export class HttpService {
     return headers;
   };
 
-  async getCountryCodeWithFlag(): Promise<any> {
-    try {
-      let result = await this.http.get<any>('https://restcountries.eu/rest/v2/all', {observe: 'response'}).toPromise();
-      return result.body;
-    } catch (error) {
-      return Promise.reject(this.handleError(error));
-    }
-  }
-
   async get(url: string): Promise<Response> {
     try {
       let headers: HttpHeaders = this.getHeaders();
