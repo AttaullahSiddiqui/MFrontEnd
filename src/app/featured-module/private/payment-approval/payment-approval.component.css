@@ -1,0 +1,86 @@
+.nav-link{
+    background-color: white;
+    padding-left: 10px;
+    padding-right:10px ;
+}
+#pills-home-tab{
+    color: gray;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+#pills-home-tab.active {
+  color: black;
+  border-bottom: 2px solid orange;
+  background-color: white;
+  border-radius: 0;
+}
+
+#pills-profile-tab{
+    color: gray;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+#pills-profile-tab.active {
+    color: black;
+  border-bottom: 2px solid orange;
+  background-color: white;
+  border-radius: 0;
+ 
+}
+#pills-contact-tab{
+    color: gray;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+#pills-contact-tab.active {
+    color: black;
+  border-bottom: 2px solid orange;
+  background-color: white;
+  border-radius: 0;
+
+}
+.action-button{
+    margin: auto;
+}
+
+.mysearchbox{
+  padding-right: 170px;
+  padding-top:10px;
+  padding-bottom: 10px;
+  border: none;
+}
+#customCheck3 input[type=checkbox]:checked {
+    background-color: #a77e2d !important;
+    color: #ffffff !important;
+  }
+
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  @media only screen and (max-width: 800px) {
+    .smalledit1 {
+        padding: 0px;
+      
+  
+}
+}

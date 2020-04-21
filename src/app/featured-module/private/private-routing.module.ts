@@ -23,7 +23,13 @@ const routes: Routes = [{
 {
   path: 'withdraw',
   loadChildren: () => import('./withdraw/withdraw.module').then(m => m.WithdrawModule)
-},{
+},
+{
+  path: 'paymentapproval',
+  loadChildren: () => import('./payment-approval/payment-approval.module').then(m => m.PaymentApprovalModule)
+},
+
+{
   path: 'plan',
   loadChildren: () => import('./plans/plans.module').then(m => m.PlansModule)
 }];
