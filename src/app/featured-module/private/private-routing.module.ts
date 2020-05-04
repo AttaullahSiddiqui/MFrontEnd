@@ -53,6 +53,10 @@ const routes: Routes = [{
   path: 'paymentapproval',
   loadChildren: () => import('./payment-approval/payment-approval.module').then(m => m.PaymentApprovalModule)
 },
+{
+  path: 'payment-slection',
+  loadChildren: () => import('./payment-slection/payment-slection.module').then(m => m.PaymentSlectionModule)
+},
 
 {
   path: 'plans',
