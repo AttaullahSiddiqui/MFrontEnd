@@ -1,0 +1,80 @@
+.title{
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.main-title{
+  margin-left: 60px;
+  margin-right: 60px;
+  font-weight: bold;
+}
+.link-tag {
+  font-size: 20px;
+  color: orange !important;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+/*==========================modal work-----------------------------*/
+.modal-title{
+  font-weight: bold;
+}
+.modal-header {
+  border-bottom: 0 none;
+}
+.label{
+  font-weight: bold;
+}
+.back-btn {
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**-----------------media queriesss----------------/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .edited-row {
+      /* margin-left: 80px; */
+      margin-right: 1px;
+      margin-left: 70px;
+  } 
+  .main-title {
+      font-size: 35px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px)  {
+  .edited-row {
+      margin-left: 80px;
+  }
+}
+
+
+
+
+

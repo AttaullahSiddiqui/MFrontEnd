@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PendingComponent } from './pending.component';
 import { Routes, RouterModule } from '@angular/router';
-import { PlansComponent } from './plans.component';
+
 
 const routes: Routes = [{
   path: '',
-  component: PlansComponent,
+  component: PendingComponent
 }];
 
-
 @NgModule({
-  declarations: [PlansComponent],
+  declarations: [PendingComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ]
 })
-export class PlansModule { }
+export class PendingModule { }

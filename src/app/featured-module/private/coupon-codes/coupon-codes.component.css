@@ -1,0 +1,4 @@
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    background-color: orange;
+    border-radius: 3px;
+}

@@ -10,6 +10,7 @@ import { SideMenuComponent } from './core/components/side-menu/side-menu.compone
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
 
+
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -30,7 +31,8 @@ export function provideConfig() {
     HeaderComponent,
     FooterComponent,
     SideMenuComponent,
-    LayoutComponent
+    LayoutComponent,
+    
   ],
   imports: [
     BrowserModule,
