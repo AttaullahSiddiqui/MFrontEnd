@@ -3,76 +3,73 @@
         <div class="col-md-5">
             <h1 class="mb-5 mt-5 font-weight-bold" style="font-size:34px;">Pending</h1>
             
-            <form class=" " action="#!">
+            <form [formGroup]="bankDetailsForm" (ngSubmit)="!isRequestPending && save(bankDetailsForm.valid, bankDetailsForm.value)">
 
                 <h4 class="mb-4 font-weight-bold" style="font-size:24px;">Bank</h4>
-
             
-                <label class=" font-weight-bold" >Bank Name</label>
-                <input type="email" formControlName="email"
-                id="_email" class="form-control" placeholder="Meezan Bank" autocomplete="off">
+                <label class=" font-weight-bold" for="_bankName">Bank Name</label>
+                <input type="text" formControlName="bankName"
+                [ngClass]="{'red-validation': isFormSubmit && bankDetailsForm.controls.bankName.errors?.required}"
+                id="_bankName" class="form-control" autocomplete="off">
+                <div *ngIf="isFormSubmit">
+                    <label class="red-text" *ngIf="bankDetailsForm.controls.bankName.errors?.required">Bank name is required</label>
+                </div>
                
-
-                <label class="text-left font-weight-bold mt-4" for="_password">A/C TITLE</label>
-                <input type="Name"
-                class="form-control" id="_password" placeholder="  GLOBAL ADS MARKETING" autocomplete="off">
+                <label class="text-left font-weight-bold mt-4" for="_accountTitle">A/C TITLE</label>
+                <input type="text" formControlName="accountTitle"
+                [ngClass]="{'red-validation': isFormSubmit && bankDetailsForm.controls.accountTitle.errors?.required}"
+                class="form-control" id="_accountTitle" autocomplete="off">
+                <div *ngIf="isFormSubmit">
+                    <label class="red-text" *ngIf="bankDetailsForm.controls.accountTitle.errors?.required">Acc Title is required</label>
+                </div>
                
+                <label class="text-left font-weight-bold mt-4" for="_accountNumber">A/C NUMBER </label>
+                <input type="text" formControlName="accountNumber"
+                [ngClass]="{'red-validation': isFormSubmit && bankDetailsForm.controls.accountNumber.errors?.required}"
+                class="form-control" id="_accountNumber" autocomplete="off">
+                <div *ngIf="isFormSubmit">
+                    <label class="red-text" *ngIf="bankDetailsForm.controls.accountNumber.errors?.required">Account number is required</label>
+                </div>
             
-                
-                <label class="text-left font-weight-bold mt-4" for="_password">A/C NUMBER </label>
-                <input type="name" 
-                class="form-control" id="_password" placeholder="  49845878439" autocomplete="off">
-               
-            
-             
-                
-               
-           
-            
-            
-            </form>
-            <form   action="#!">
-
                 <h4 class="mt-5 mb-4 font-weight-bold" style="font-size:24px;">Support</h4>
-
             
-                <label class=" font-weight-bold text-uppercase" for="_email">Withdrawal issues</label>
-                <input type="name" formControlName="email"
-                id="_email" class="form-control" placeholder=" 0303-213454233 (Call Only)" autocomplete="off">
+                <label class=" font-weight-bold text-uppercase" for="_withdrawlIssues">Withdrawal issues</label>
+                <input type="text" formControlName="withdrawalIssue"
+                [ngClass]="{'red-validation': isFormSubmit && bankDetailsForm.controls.withdrawalIssue.errors?.required}"
+                id="_withdrawlIssues" class="form-control" autocomplete="off">
+                <div *ngIf="isFormSubmit">
+                    <label class="red-text" *ngIf="bankDetailsForm.controls.withdrawalIssue.errors?.required">Withdrawal support is required</label>
+                </div>
                
+                <label class="text-left font-weight-bold mt-4" for="_newRegistration">NEW REGISTRATION</label>
+                <input type="text" formControlName="newRegistration"
+                [ngClass]="{'red-validation': isFormSubmit && bankDetailsForm.controls.newRegistration.errors?.required}"
+                class="form-control" id="_newRegistration" autocomplete="off">
+                <div *ngIf="isFormSubmit">
+                    <label class="red-text" *ngIf="bankDetailsForm.controls.newRegistration.errors?.required">New Registration support is required</label>
+                </div>
 
-                <label class="text-left font-weight-bold mt-4" for="_password">NEW REGISTRATION</label>
-                <input type="Name"
-                class="form-control" id="_password" placeholder=" 0303-213454233 (Call Only)" autocomplete="off">
-              
-            
-                
-                <label class="text-left font-weight-bold mt-4" for="_password">TECH SUPPORT</label>
-                <input type="name" 
-                class="form-control" id="_password" placeholder=" 0303-213454233 (Call Only)" autocomplete="off">
-               
+                <label class="text-left font-weight-bold mt-4" for="_techSupport">TECH SUPPORT</label>
+                <input type="text" formControlName="techSupport"
+                [ngClass]="{'red-validation': isFormSubmit && bankDetailsForm.controls.techSupport.errors?.required}"
+                class="form-control" id="_techSupport" autocomplete="off">
+                <div *ngIf="isFormSubmit">
+                    <label class="red-text" *ngIf="bankDetailsForm.controls.techSupport.errors?.required">Tech support is required</label>
+                </div>
 
                 <div class="form-row mt-3 mb-5">
                     <div class="col mr-2">
-                        <button style="background-color: #2c2c2c;" class="btn btn-block text-white pt-2 pb-2 mt-3" type="submit">
-                        <b>Cancel</b> 
+                        <button routerLink="/dashboard" style="background-color: #2c2c2c;" class="btn btn-block text-white pt-2 pb-2 mt-3" type="button">
+                            <b>Cancel</b> 
                         </button>
-                      
                     </div>
                     <div class="col ml-2">
                         <button style="background-color: orange" class="btn btn-block text-white pt-2 pb-2 mt-3" type="submit">
-                            <b>Save Changes</b> 
-                          </button>
-                     
+                            <b *ngIf="!isRequestPending">Save Changes</b> 
+                            <i *ngIf="isRequestPending" class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>
+                        </button>
                     </div>
-                  </div>
-            
-             
-                
-               
-           
-            
-            
+                </div>
             </form>
         </div>
     </div>
