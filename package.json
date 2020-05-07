@@ -25,6 +25,7 @@
     "font-awesome": "4.7.0",
     "intl-tel-input": "^16.1.0",
     "jquery": "^3.4.1",
+    "ngx-toastr": "^10.0.4",
     "ng2-tel-input": "^2.3.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",

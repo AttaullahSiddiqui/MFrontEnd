@@ -21,10 +21,10 @@ export class HttpService {
   getHeaders(isMultiPartFormData?: boolean): HttpHeaders {
     const authorizationToken = this.utility.getCookie('authToken');
     let options = {
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
     }
-    if(authorizationToken){
-      options['authorization'] = 'Bearer '+authorizationToken;
+    if (authorizationToken) {
+      options['authorization'] = 'Bearer ' + authorizationToken;
     }
     const headers = new HttpHeaders(options);
     return headers;
@@ -43,9 +43,9 @@ export class HttpService {
   async post(url: string, data: any, options?: options): Promise<Response> {
     try {
       let headers: HttpHeaders;
-      if(options && options.isMultiPartFormData){
+      if (options && options.isMultiPartFormData) {
         headers = this.getHeaders(true);
-      }else{
+      } else {
         headers = this.getHeaders();
       }
       let result = await this.http.post<any>(environment.baseUrl + url, data, { observe: 'response', headers: headers }).toPromise();
@@ -58,9 +58,9 @@ export class HttpService {
   async put(url: string, data: any, options?: options): Promise<Response> {
     try {
       let headers: HttpHeaders;
-      if(options && options.isMultiPartFormData){
+      if (options && options.isMultiPartFormData) {
         headers = this.getHeaders(true);
-      }else{
+      } else {
         headers = this.getHeaders();
       }
       let result = await this.http.put<any>(environment.baseUrl + url, data, { observe: 'response', headers: headers }).toPromise();
@@ -81,6 +81,7 @@ export class HttpService {
   }
 
   private handleError(error: HttpErrorResponse): Response {
+    
     // if(error.status == 401){
     //   this.utility.removeToken();
     //   this.route.navigate(['/login']);
@@ -160,6 +161,6 @@ export interface Response {
   body?: any
 }
 
-export interface options{
-  isMultiPartFormData? : boolean
+export interface options {
+  isMultiPartFormData?: boolean
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -9,7 +10,7 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { SideMenuComponent } from './core/components/side-menu/side-menu.component';
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
-
+import { ToastrModule } from 'ngx-toastr';
 
 const config = new AuthServiceConfig([
   {
@@ -32,10 +33,16 @@ export function provideConfig() {
     FooterComponent,
     SideMenuComponent,
     LayoutComponent,
-    
+
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
     HttpClientModule,
     AppRoutingModule,
     SocialLoginModule

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup , FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService, UtilityService, Response } from '@app/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pending',
@@ -11,13 +12,14 @@ export class PendingComponent implements OnInit {
 
   bankDetailsForm: FormGroup
   isFormSubmit: boolean = false;
-  isRequestPending : boolean = false;
+  isRequestPending: boolean = false;
   serverMsg = "";
 
   constructor(
     private fb: FormBuilder,
     private http: HttpService,
-    private util: UtilityService
+    private util: UtilityService,
+    private toastr: ToastrService
   ) { }
 
 
@@ -26,7 +28,7 @@ export class PendingComponent implements OnInit {
     this.getBankDetails();
   }
 
-  createBankDetailsForm(){
+  createBankDetailsForm() {
     this.bankDetailsForm = this.fb.group({
       _id: '',
       bankName: ['', Validators.required],
@@ -38,11 +40,11 @@ export class PendingComponent implements OnInit {
     })
   }
 
-  getBankDetails(){
-    this.http.get('bank-details').then( (result: Response) => {
-      if(result.body.data && result.body.data.length > 0){
+  getBankDetails() {
+    this.http.get('bank-details').then((result: Response) => {
+      if (result.body.data && result.body.data.length > 0) {
         let bankDetails = result.body.data[0];
-        if(bankDetails['_id']){
+        if (bankDetails['_id']) {
           this.bankDetailsForm.patchValue({
             _id: bankDetails['_id'],
             bankName: bankDetails['bankName'],
@@ -54,30 +56,33 @@ export class PendingComponent implements OnInit {
           })
         }
       }
-    }).catch( (error: Response) => {
-      console.log("Error ----",error);
+    }).catch((error: Response) => {
+      console.log("Error ----", error);
+      this.toastr.error("Unable to fetch Bank details", 'Error');
     })
   }
 
-  save(valid, value){
+  save(valid, value) {
     this.isFormSubmit = true;
-    if(!valid){
+    if (!valid) {
       return;
     }
     this.isRequestPending = true;
-    this.http.put('bank-details/update', value).then( (result: Response) => {
-      console.log("result ---",result.body.data);
+    this.http.put('bank-details/update', value).then((result: Response) => {
+      console.log("result ---", result.body.data);
       let data = result.body.data;
-      if(data.type == 'insert'){
+      if (data.type == 'insert') {
         this.bankDetailsForm.patchValue({
           _id: result.body.data.id
         })
       }
       this.isRequestPending = false;
-    }).catch( (error: Response) => {
-      console.log("Error ---",error);
+      this.toastr.success('Details saved successfully', 'Success');
+    }).catch((error: Response) => {
+      console.log("Error ---", error);
       this.isRequestPending = false;
-    }) 
+      this.toastr.error("Error in saving Details", 'Error');
+    })
   }
 
 
