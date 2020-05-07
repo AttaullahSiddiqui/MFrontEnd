@@ -28,7 +28,7 @@ export class ManualPaymentComponent implements OnInit {
   createdepositForm() {
     this.depositForm = this.fb.group({
       submitDate: ['', Validators.required],
-      type: ['', Validators.required],
+      type: ['meezan', Validators.required],
       coupon: ['']
     })
   }
@@ -44,7 +44,10 @@ export class ManualPaymentComponent implements OnInit {
       console.log("Error ----", error);
     })
   }
-  removeImg() { this.depositSlip = null }
+  removeImg() { 
+    this.depositSlip = null;
+    this.imgFile = null;
+  }
 
   triggerInputFile() { (<HTMLElement>document.getElementById('inputFile')).click() }
 
@@ -61,27 +64,26 @@ export class ManualPaymentComponent implements OnInit {
 
   saveDeposit(valid, value) {
     this.isFormSubmit = true;
-    if (!valid || this.isRequestPending) return;
+    if (!valid || !this.depositSlip || this.isRequestPending) return;
     this.isRequestPending = true;
 
-    value.submitDate = new Date(value.submitDate).getTime();
     let payload = {};
     Object.assign(payload, value);
     let formData = new FormData();
     formData.append('submitDate', payload['submitDate']);
     formData.append('type', payload['type']);
     formData.append('coupon', payload['coupon']);
-    formData.append('depositSlip', this.depositSlip);
     formData.append('picture', this.imgFile);
 
     this.http.post('bank-details/depositSlip', formData, { isMultiPartFormData: true }).then((result: Response) => {
-      console.log("result ---", result.body.data);
       this.depositForm.reset();
       this.depositSlip = null;
+      this.imgFile = null;
+      this.depositForm.patchValue({ type: 'meezan' });
       this.isRequestPending = false;
+      this.isFormSubmit = false;
       this.toastr.success('Deposit slip saved', 'Success');
     }).catch((error: Response) => {
-      console.log("Error ---", error);
       this.toastr.error("Unable to save deposit slip", 'Error');
       this.isRequestPending = false;
     })

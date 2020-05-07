@@ -30,11 +30,14 @@
                                 <input type="date" class="form-control input-lg" formControlName="submitDate"
                                     [ngClass]="{'red-validation': isFormSubmit && depositForm.controls.submitDate.errors?.required}"
                                     placeholder="Deposit date">
+                                <div *ngIf="isFormSubmit && depositForm.controls.submitDate.errors?.required">
+                                    <label class="red-text"> Please select deposit date </label>
+                                </div>
                             </div>
                             <div class="form-group col-md-5">
                                 <label>Account Type</label>
                                 <select class="form-control input-lg" formControlName="type">
-                                    <option selected>Pick a type</option>
+                                    <!-- <option value="-1">Pick a type</option> -->
                                     <option value="meezan">Meezan Bank</option>
                                 </select>
                             </div>
@@ -60,8 +63,12 @@
                             <p class="dots" style="background-color: white;">Drag or <small
                                     class="upload">Upload</small> payment proof file</p>
                         </div>
-                        <button type="submit" class="btn btn-submit btn-lg btn-block"
-                            [disabled]="!depositForm.valid">Submit</button>
+                        <div *ngIf="isFormSubmit && !depositSlip">
+                            <label class="red-text"> Please attach payment proof file </label>
+                        </div>
+                        <button type="submit" class="btn btn-submit btn-lg btn-block">
+                            Submit
+                        </button>
                     </form>
                 </div>
             </div>
