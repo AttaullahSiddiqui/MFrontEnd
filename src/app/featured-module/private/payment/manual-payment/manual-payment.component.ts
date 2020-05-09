@@ -44,7 +44,7 @@ export class ManualPaymentComponent implements OnInit {
       console.log("Error ----", error);
     })
   }
-  removeImg() { 
+  removeImg() {
     this.depositSlip = null;
     this.imgFile = null;
   }
@@ -75,7 +75,7 @@ export class ManualPaymentComponent implements OnInit {
     formData.append('coupon', payload['coupon']);
     formData.append('picture', this.imgFile);
 
-    this.http.post('bank-details/depositSlip', formData, { isMultiPartFormData: true }).then((result: Response) => {
+    this.http.post('payments/account-payment', formData, { isMultiPartFormData: true }).then((result: Response) => {
       this.depositForm.reset();
       this.depositSlip = null;
       this.imgFile = null;

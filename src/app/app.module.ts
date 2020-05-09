@@ -33,7 +33,6 @@ export function provideConfig() {
     FooterComponent,
     SideMenuComponent,
     LayoutComponent,
-
   ],
   imports: [
     BrowserModule,

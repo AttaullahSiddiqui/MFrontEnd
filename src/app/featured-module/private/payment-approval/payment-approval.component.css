@@ -43,7 +43,19 @@ border-radius: 0;
 border-bottom: 2px solid orange;
 background-color: white;
 border-radius: 0;
-
+}
+#pills-locked-tab{
+  color: gray;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+#pills-locked-tab.active {
+  color: black;
+border-bottom: 2px solid orange;
+background-color: white;
+border-radius: 0;
 }
 .action-button{
   margin: auto;
@@ -97,6 +109,27 @@ text-transform: uppercase;
 }
 .icons {
 padding: 10px;
+}
+.approve svg path{
+  fill: green !important;
+}
+.approve svg text{
+  fill: green !important;
+}
+.reject svg path{
+  fill: red !important;
+}
+.reject svg text{
+  fill: red !important;
+}
+.lock svg path{
+  fill: black !important;
+}
+.lock svg text{
+  fill: black !important;
+}
+.reject:hover,.approve:hover,.lock:hover{
+  cursor: pointer;
 }
 
 
