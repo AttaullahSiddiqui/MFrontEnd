@@ -1,0 +1,7 @@
+.navbar-light .navbar-nav .nav-link.active{
+    color: #F0A30D;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+    color: #F0A30D;
+}
