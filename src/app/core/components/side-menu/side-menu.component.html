@@ -1,16 +1,25 @@
 <div class="container">
     <div class="row">
-        <div class="icon-bar" id="icon-bar">
+        <div class="icon-bar" id="icon-bar" *ngIf="user.userType == 'user'">
             <img class="logo" src="assets/Logo.png" alt="logo">
             <hr>
             <img class="list" id="list" src="assets/Big/Navbar-menu.png" alt="list" >
-           <li class="active"> <img class="side-link text-center" src="assets/Big/Dashboard.png" alt="logo"></li> 
-           <li class="side-item"> <img class="side-link text-center" src="assets/Big/Credit-card.png" alt=""></li> 
-           <li class="side-item"> <img class="side-link text-center" src="assets/Big/Menu.png" alt=""></li> 
-           <li class="side-item"> <img class="side-link text-center" src="assets/Big/Hourglass.png" alt=""></li> 
-           <li class="side-item"> <img class="side-link text-center" src="assets/Big/group.png" alt=""></li> 
-           <li class="side-item"> <img class="side-link text-center" src="assets/Big/Share.png" alt=""></li> 
-           <li class="side-item"> <img class="side-link text-center" src="assets/Big/Logout-1.png" alt=""></li> 
-          </div>
+            <li class="active"> <img class="side-link text-center cs-pointer" src="assets/Big/Dashboard.png" alt="logo" routerLink="/dashboard"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Menu.png" alt="" routerLink="/company"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/group.png" alt="" routerLink="/direct-referrals/table-view"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Credit-card.png" alt="" routerLink="/withdraw"></li> 
+        </div>
+        <div class="icon-bar" id="icon-bar" *ngIf="user.userType == 'admin'">
+            <img class="logo" src="assets/Logo.png" alt="logo">
+            <hr>
+            <img class="list" id="list" src="assets/Big/Navbar-menu.png" alt="list" >
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Payment Approv.png" alt="" routerLink="/paymentapproval"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Withdraw Approv.png" alt="" routerLink="/withdraw-approval"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Withdraw Methods.png" alt="" routerLink="/withdrawmethods"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Menu.png" alt="" routerLink="/plans"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Hourglass.png" alt="" routerLink="/pending"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/group.png" alt="" routerLink="/direct-referrals/table-view"></li> 
+            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Gear 1.png" alt="" routerLink="/comission-setting"></li> 
+        </div>
     </div>
 </div>

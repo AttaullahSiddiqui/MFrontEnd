@@ -12,7 +12,6 @@ export class SideMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log("User data ---", this.user);
   }
 
   openNav() {
