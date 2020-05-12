@@ -1,0 +1,80 @@
+.box{
+    padding: 19px 22px 0px 0px;;
+    background-color: white;
+    border-radius: 4px;
+    float: right;
+  }
+  .box1{
+    padding: 19px 22px 0px 0px;;
+    background-color: #F0BE0D;
+    border-radius: 4px;
+    float: right;
+  }
+
+
+
+ .yellow-line{
+    width: 120px;
+    padding: 1px;
+    border: 1px solid #F0BE0D;
+    border-radius: 4px;
+    background-color: #F0BE0D;
+    margin-left: -40px;
+  }
+
+
+  .yellow-line1{
+    width: 180px;
+    padding: 1px;
+    border: 1px solid #F0BE0D;
+    border-radius: 4px;
+    background-color: #F0BE0D;
+    margin-left: 50px;
+   
+  }
+
+
+  .edit-card{
+      margin-top: -80px;
+  }
+
+  .edit-card1{
+    margin-top: -80px;
+}
+.myedit{
+    padding-left: 60px;
+   
+}
+.edit3{
+    padding-top: 100px;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+   text-align: center;
+}
+.edit4 {
+   padding-left: 90px;
+}
+
+
+/**-----------------media queriesss----------------/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .edit-card1{
+        margin-top: 10px;
+    }
+    .edit4 {
+        padding-left: 30px;
+        padding-right: 30px;
+     }
+    
+  
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px)  {
+    .edit-card1{
+        margin-top: 10px;
+    }
+    
+}

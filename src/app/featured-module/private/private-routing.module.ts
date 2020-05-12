@@ -48,7 +48,6 @@ const routes: Routes = [{
   path: 'pending',
   loadChildren: () => import('./pending/pending.module').then(m => m.PendingModule)
 },
-
 {
   path: 'paymentapproval',
   loadChildren: () => import('./payment-approval/payment-approval.module').then(m => m.PaymentApprovalModule)
@@ -57,7 +56,6 @@ const routes: Routes = [{
   path: 'payment-slection',
   loadChildren: () => import('./payment-slection/payment-slection.module').then(m => m.PaymentSlectionModule)
 },
-
 {
   path: 'plans',
   loadChildren: () => import('./plans/plans.module').then(m => m.PlansModule)

@@ -8,6 +8,7 @@ import { CompleteProfileComponent } from './complete-profile/complete-profile.co
 import { PhoneVerficationComponent } from './phone-verfication/phone-verfication.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
+import { HomeModule } from './home/home.module';
 
 const routes: Routes = [{
   path: 'login',
@@ -31,6 +32,10 @@ const routes: Routes = [{
 {
   path: 'signup',
   component: SignupComponent
+},
+{
+  path: 'home',
+  loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
 },
 
 {
