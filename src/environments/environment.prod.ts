@@ -1,5 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://mlm.mmcgbl.com/api/v1/',
-  rootUrl: 'https://mlm.mmcgbl.com/'
+  baseUrl: 'https://abc.mmcgbl.com/api/v1/'
 };

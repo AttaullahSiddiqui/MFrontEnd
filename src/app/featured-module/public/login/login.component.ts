@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, FacebookLoginProvider, SocialUser, GoogleLoginProvider } from 'angularx-social-login';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup , FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService, UtilityService } from '@app/core';
 
@@ -49,10 +49,14 @@ export class LoginComponent implements OnInit {
       let result = success.body.data;
       this.util.setCookie('authToken', result.accessToken, { expireDays: 30 });
       let url = "/dashboard";
-      if (!result.user.isProfileComplete) {
-        url = '/compelete-profile';
-      } else if (!result.user.isMobileVerified) {
-        url = '/phone-verification';
+      if(result.user.userType == 'admin'){
+        url = "/paymentapproval";
+      }else{
+        if(!result.user.isProfileComplete){
+          url = '/compelete-profile';
+        }else if(!result.user.isMobileVerified){
+          url = '/phone-verification';
+        }
       }
       this.router.navigate([url])
     }).catch((err: Response) => {

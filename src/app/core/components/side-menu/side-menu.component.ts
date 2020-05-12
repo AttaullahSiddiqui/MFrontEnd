@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
+  @Input() user:any;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log("User data ---", this.user);
   }
+
   openNav() {
     document.getElementById("mySidepanel").style.width = "250px";
   }

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
 import { HttpService, Response } from '@app/core/services/http.service';
 import { UtilityService } from '@app/core/services/utility.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements CanActivate {
+export class AuthService implements CanActivate, Resolve<any> {
+
+  private loginUser;
 
   constructor(
     private http: HttpService,
@@ -23,29 +25,34 @@ export class AuthService implements CanActivate {
     return new Promise((resolve, reject) => {
       this.http.get('user/me').then( (result: Response) => {
         let user = result.body.data;
-        if(user.isProfileComplete && user.isMobileVerified){
-          if(state.url == '/compelete-profile' || state.url == '/phone-verification'){
-            this.router.navigate(['/dashboard']);
-            return resolve(false);
-          }
+        this.loginUser = user;
+        if(user.userType == 'admin'){
           return resolve(true);
-        }
-        else if(user.isProfileComplete){
-          if(!user.isMobileVerified){
-            if(state.url == '/phone-verification'){
+        }else{
+          if(user.isProfileComplete && user.isMobileVerified){
+            if(state.url == '/compelete-profile' || state.url == '/phone-verification'){
+              this.router.navigate(['/dashboard']);
+              return resolve(false);
+            }
+            return resolve(true);
+          }
+          else if(user.isProfileComplete){
+            if(!user.isMobileVerified){
+              if(state.url == '/phone-verification'){
+                return resolve(true);
+               }else{
+                 this.router.navigate(['/phone-verification']);
+                 return resolve(false);
+               }
+            }
+          }else{
+            if(state.url == '/compelete-profile'){
               return resolve(true);
              }else{
-               this.router.navigate(['/phone-verification']);
+               this.router.navigate(['/compelete-profile']);
                return resolve(false);
              }
           }
-        }else{
-          if(state.url == '/compelete-profile'){
-            return resolve(true);
-           }else{
-             this.router.navigate(['/compelete-profile']);
-             return resolve(false);
-           }
         }
       }).catch( (error: Response) => {
         this.router.navigate(['/login']);
@@ -53,4 +60,10 @@ export class AuthService implements CanActivate {
       })
     })
   }
+
+  resolve() {
+    return this.loginUser;
+  }
+
+
 }

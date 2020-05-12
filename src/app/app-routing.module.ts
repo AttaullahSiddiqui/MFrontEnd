@@ -12,6 +12,9 @@ const routes: Routes = [{
   path: '',
   component: LayoutComponent,
   canActivate: [AuthService],
+  resolve: {
+    user: AuthService
+  },
   children: [{
     path: '',
     loadChildren: () => import('./featured-module/private/private.module').then(m => m.PrivateModule)
