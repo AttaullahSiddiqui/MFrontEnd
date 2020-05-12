@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup , FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService, UtilityService } from '@app/core';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,54 +11,59 @@ import { HttpService, UtilityService } from '@app/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  referralId: string;
   signupForm: FormGroup
   isFormSubmit: boolean = false;
-  isRequestPending : boolean = false;
+  isRequestPending: boolean = false;
   serverMsg = "";
 
   constructor(
     private fb: FormBuilder,
     private http: HttpService,
     private router: Router,
-    private util: UtilityService
+    private util: UtilityService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(paramMap => {
+      this.referralId = paramMap.get('id')
+    })
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)] ]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
 
-  register(valid, value){
+  register(valid, value) {
     this.isFormSubmit = true;
     this.serverMsg = "";
-    if(!valid){
+    if (!valid) {
       return;
     }
     this.isRequestPending = true;
     let payload = {};
     Object.assign(payload, value);
+    if (this.referralId) payload['referralId'] = this.referralId;
     payload['registrationType'] = 'self';
-    this.http.post('user/register', payload).then(success =>{
+    this.http.post('user/register', payload).then(success => {
       this.resetForm();
       this.isRequestPending = false;
       let result = success.body.data;
-      this.util.setCookie('authToken', result.accessToken, {expireDays: 30})
+      this.util.setCookie('authToken', result.accessToken, { expireDays: 30 })
       this.router.navigate(['/compelete-profile'])
     }).catch((err: Response) => {
       this.isRequestPending = false;
-      if(err.status == 403){
+      if (err.status == 403) {
         this.serverMsg = err['error'].message;
-      }else{
+      } else {
         this.serverMsg = "Unexpected error";
       }
-      console.log("error ----",err);
+      console.log("error ----", err);
     })
   }
 
-  resetForm(){
+  resetForm() {
     this.signupForm.reset();
     this.isFormSubmit = false;
     this.serverMsg = "";

@@ -12,14 +12,17 @@ import { NotFound404Component } from './not-found404/not-found404.component';
 const routes: Routes = [{
   path: 'login',
   component: LoginComponent
-}
-,
+},
+{
+  path: 'login/:id',
+  component: LoginComponent
+},
 {
   path: 'compelete-profile',
   component: CompleteProfileComponent,
   canActivate: [AuthService]
 }
-,
+  ,
 {
   path: 'phone-verification',
   component: PhoneVerficationComponent,

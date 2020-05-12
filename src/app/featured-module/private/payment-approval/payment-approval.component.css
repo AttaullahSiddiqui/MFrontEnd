@@ -131,6 +131,10 @@ padding: 10px;
 .reject:hover,.approve:hover,.lock:hover{
   cursor: pointer;
 }
+.colorGreen{
+  color:green;
+  font-weight: bold;
+}
 
 
 

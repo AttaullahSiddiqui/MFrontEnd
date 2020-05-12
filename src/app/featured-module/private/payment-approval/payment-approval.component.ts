@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService, UtilityService, Response } from '@app/core';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-payment-approval',
@@ -12,7 +13,7 @@ export class PaymentApprovalComponent implements OnInit {
   modifiedIdArray = [];
   isRequestPending: Boolean = false;
   showList: Boolean = false;
-
+  baseUrl = environment.rootUrl;
   constructor(
     private http: HttpService,
     private toastr: ToastrService) { }
@@ -66,13 +67,6 @@ export class PaymentApprovalComponent implements OnInit {
     }).catch((error: Response) => {
       this.toastr.error("Unable to update List", 'Error');
       this.isRequestPending = false;
-    })
-  }
-  downloadImage(imageUrl: string) {
-    this.http.post('payments/download-image', { imageUrl: imageUrl }, { isMultiPartFormData: true }).then((result: Response) => {
-      console.log(result.body)
-    }).catch((error: Response) => {
-      console.log("Error ----", error);
     })
   }
 }

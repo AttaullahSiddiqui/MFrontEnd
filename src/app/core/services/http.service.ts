@@ -81,7 +81,7 @@ export class HttpService {
   }
 
   private handleError(error: HttpErrorResponse): Response {
-
+    console.log(error)
     // if(error.status == 401){
     //   this.utility.removeToken();
     //   this.route.navigate(['/login']);
@@ -92,9 +92,9 @@ export class HttpService {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error.message}`);
+      // console.error(
+      //   `Backend returned code ${error.status}, ` +
+      //   `body was: ${error.error.message}`);
     }
 
     return { error: error.error, status: error.status, statusText: error.statusText }

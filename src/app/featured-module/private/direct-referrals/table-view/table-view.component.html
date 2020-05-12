@@ -1,88 +1,137 @@
 <div class="container-fluid">
-    <div class="row edited-row">
-        <div class="col-12">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-12 ">
-                    <div class="title">
-                        <h1 class="main-title" >Direct Referrals</h1>
-                    </div>
-                </div>
-        </div>
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-9 col-xs-12 ">
-                <div class="title">
-                    <a class="link-tag">+ Invite more friends</a>
-                </div>
-            </div>
-            <div class="col-md-3  col-xs-12 ">
-                <div class="title">
-                    <a class="link-tag">Change the view</a>
-                    <img class="table-img" src="assets/Big/List.png" alt="list" >
-                    <img class="chart-img" src="assets/Big/Genealogy.png" alt="list" >
-                </div>
-            </div>
-    </div>
-    <div class="row">
-        <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class=" " scope="col" style="width: 10px;">ID</th>
-                  <th class=" " scope="col" style="width: 50px;">NAME</th>
-                  <th class=" " scope="col" style="width: 50px;">contacts</th>
-                  <th class=" " scope="col" style="width: 40px;">join from</th>
-                  <th class=" " scope="col" style="width: 40px;">date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th class=" "scope="row">20358</th>
-                  <td style="font-weight: bold;" >Maksym Gozhelsky</td>
-                  <td class=" ">
-                      <a ><img class="icons" id="list" src="assets/Big/Email.png" alt="list" >maksymgozhelsky@gmail.com</a>
-                      <br>
-                      <a ><img class="icons" id="list" src="assets/Big/Phone.png" alt="list" >+9203072634894</a>
-                      <br>
-                      <a><img class="icons" id="list" src="assets/Big/Placeholder.png" alt="list" >Zhovkva, Ukaraine</a>
-
-                  </td>
-                  <td class=""><a href="">google.com</a></td>
-                  <td class="">02.12.2020</td>
-                 
-                </tr>
-                <tr>
-                  <th class=" " scope="row">20358</th>
-                  <td style="font-weight: bold;" >Theresa Miles</td>
-                  <td class=" ">
-                    <a><img class="icons" id="list" src="assets/Big/Email.png" alt="list" >maksymgozhelsky@gmail.com</a>
-                    <br>
-                    <a><img class="icons" id="list" src="assets/Big/Phone.png" alt="list" >+9203072634894</a>
-                    <br>
-                    <a><img class="icons" id="list" src="assets/Big/Placeholder.png" alt="list" >Zhovkva, Ukaraine</a>
-
-                </td>
-                <td class=""><a href="">google.com</a></td>
-                  <td class="">02.12.2020</td>
-                 
-                </tr>
-                <tr>
-                  <th class=""  scope="row">20358</th>
-                  <td style="font-weight: bold;">Kyle Black</td>
-                  <td class=" ">
-                    <a><img class="icons" id="list" src="assets/Big/Email.png" alt="list" >maksymgozhelsky@gmail.com</a>
-                    <br>
-                    <a><img class="icons" id="list" src="assets/Big/Phone.png" alt="list" >+9203072634894</a>
-                    <br>
-                    <a><img class="icons" id="list" src="assets/Big/Placeholder.png" alt="list" >Zhovkva, Ukaraine</a>
-
-                </td>
-                <td class=""><a href="">google.com</a></td>
-                  <td class="">02.12.2020</td>
-                </tr>
-              </tbody>
-            </table>
+  <div class="row edited-row">
+    <div class="col-12">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 ">
+          <div class="title">
+            <h1 class="main-title">Direct Referrals</h1>
           </div>
-    </div>
         </div>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-9 col-xs-12 ">
+          <div class="title">
+            <a class="link-tag" (click)="open(content)">+ Invite more friends</a>
+          </div>
+        </div>
+        <div class="col-md-3  col-xs-12 ">
+          <div class="title">
+            <a class="link-tag">Change the view</a>
+            <img class="table-img" src="assets/Big/List.png" alt="list">
+            <img class="chart-img" src="assets/Big/Genealogy.png" alt="list">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class=" " scope="col" style="width: 10px;">ID</th>
+                <th class=" " scope="col" style="width: 50px;">NAME</th>
+                <th class=" " scope="col" style="width: 50px;">contacts</th>
+                <th class=" " scope="col" style="width: 40px;">join from</th>
+                <th class=" " scope="col" style="width: 40px;">date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class=" " scope="row">20358</th>
+                <td style="font-weight: bold;">Maksym Gozhelsky</td>
+                <td class=" ">
+                  <a><img class="icons" id="list" src="assets/Big/Email.png" alt="list">maksymgozhelsky@gmail.com</a>
+                  <br>
+                  <a><img class="icons" id="list" src="assets/Big/Phone.png" alt="list">+9203072634894</a>
+                  <br>
+                  <a><img class="icons" id="list" src="assets/Big/Placeholder.png" alt="list">Zhovkva, Ukaraine</a>
+
+                </td>
+                <td class=""><a href="">google.com</a></td>
+                <td class="">02.12.2020</td>
+
+              </tr>
+              <tr>
+                <th class=" " scope="row">20358</th>
+                <td style="font-weight: bold;">Theresa Miles</td>
+                <td class=" ">
+                  <a><img class="icons" id="list" src="assets/Big/Email.png" alt="list">maksymgozhelsky@gmail.com</a>
+                  <br>
+                  <a><img class="icons" id="list" src="assets/Big/Phone.png" alt="list">+9203072634894</a>
+                  <br>
+                  <a><img class="icons" id="list" src="assets/Big/Placeholder.png" alt="list">Zhovkva, Ukaraine</a>
+
+                </td>
+                <td class=""><a href="">google.com</a></td>
+                <td class="">02.12.2020</td>
+
+              </tr>
+              <tr>
+                <th class="" scope="row">20358</th>
+                <td style="font-weight: bold;">Kyle Black</td>
+                <td class=" ">
+                  <a><img class="icons" id="list" src="assets/Big/Email.png" alt="list">maksymgozhelsky@gmail.com</a>
+                  <br>
+                  <a><img class="icons" id="list" src="assets/Big/Phone.png" alt="list">+9203072634894</a>
+                  <br>
+                  <a><img class="icons" id="list" src="assets/Big/Placeholder.png" alt="list">Zhovkva, Ukaraine</a>
+
+                </td>
+                <td class=""><a href="">google.com</a></td>
+                <td class="">02.12.2020</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+<ng-template #content let-modal>
+  <form class="form" [formGroup]="invitationForm"
+    (ngSubmit)="sendInvitation(invitationForm.valid, invitationForm.value)">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Invite Friends</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+        <div class="row">
+          <div class="row justify-content-center align-items-center" style="width: 100%;">
+            <div class="col">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Email Address</label>
+                  <input type="email" class="form-control input-lg" formControlName="email"
+                    [ngClass]="{'red-validation': isFormSubmit && (invitationForm.controls.email.errors?.required || invitationForm.controls.email.errors?.email)}"
+                    placeholder="Your Email">
+                </div>
+                <div class="form-group col">
+                  <label>NAME (optional)</label>
+                  <input type="text" class="form-control input-lg" formControlName="name" placeholder="Optional">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-10">
+                  <label>Invite By Link</label>
+                  <input type="text" class="form-control input-lg" formControlName="inviteLink"
+                    placeholder="https://abc.mlmcb.com/login/muhammadmateen">
+                </div>
+                <div class="form-group col-md-2" style="margin: auto;margin-top:2em">
+                  <button type="button" class="btn btn-outline-warning"
+                    [disabled]="!invitationForm.controls.inviteLink.value"
+                    (click)="copyInvitationLink(invitationForm.controls.inviteLink.value)">Copy
+                    Link</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark" [disabled]="!invitationForm.valid">Save</button>
+    </div>
+  </form>
+</ng-template>

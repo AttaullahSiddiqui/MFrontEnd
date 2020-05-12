@@ -26,6 +26,10 @@
 .chart-img {
     padding: 2px 2px 2px 5px;
 }
+label{
+    font-weight: 400;
+    font-size: 1.15em;
+}
 /*---------------------------------------table-------------------------------*/
 .table-responsive {
     background-color: white;
@@ -37,7 +41,9 @@ th{
 .icons {
     padding: 10px;
 }
-
+.navbar-default{
+    color:#E0A800  !important
+}
 /**-----------------media queriesss----------------/
 
 /* Extra small devices (phones, 600px and down) */

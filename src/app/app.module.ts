@@ -11,6 +11,7 @@ import { SideMenuComponent } from './core/components/side-menu/side-menu.compone
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const config = new AuthServiceConfig([
   {
@@ -19,7 +20,8 @@ const config = new AuthServiceConfig([
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('225062682140416')
+    // provider: new FacebookLoginProvider('225062682140416')
+    provider: new FacebookLoginProvider('257018495680154')
   }
 ]);
 export function provideConfig() {
@@ -44,7 +46,8 @@ export function provideConfig() {
     }),
     HttpClientModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NgbModule
   ],
   providers: [
     {
