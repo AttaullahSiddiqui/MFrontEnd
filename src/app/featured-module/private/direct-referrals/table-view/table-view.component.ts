@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService, Response } from '@app/core';
 import { ToastrService } from 'ngx-toastr';
+declare var $: any;
 
 @Component({
   selector: 'app-table-view',
@@ -13,23 +13,19 @@ export class TableViewComponent implements OnInit {
   invitationForm: FormGroup;
   isFormSubmit: boolean = false;
   isRequestPending: boolean = false;
-  modalReference: any;
-  constructor(private modalService: NgbModal, private fb: FormBuilder, private http: HttpService, private toastr: ToastrService) { }
+  currentModalId: string;
+  constructor(private fb: FormBuilder, private http: HttpService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.fetchCurrentUser()
-    this.createdepositForm();
+    this.createInvitationForm();
   }
-  createdepositForm() {
+  createInvitationForm() {
     this.invitationForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      name: [''],
-      inviteLink: ['', Validators.required]
+      inviteLink: ['aaaaa', Validators.required],
+      name: ['']
     })
-    this.invitationForm.controls['inviteLink'].disable();
-  }
-  open(content) {
-    this.modalReference = this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'lg' });
+    this.fetchCurrentUser();
   }
   sendInvitation(valid, value) {
     this.isFormSubmit = true;
@@ -43,7 +39,7 @@ export class TableViewComponent implements OnInit {
       this.invitationForm.reset();
       this.isRequestPending = false;
       this.isFormSubmit = false;
-      this.modalReference.close();
+      this.closePopup(this.currentModalId)
       this.toastr.success('Invitation link sent', 'Success');
     }).catch((error: Response) => {
       this.toastr.error("Unable to send Invitation", 'Error');
@@ -59,6 +55,7 @@ export class TableViewComponent implements OnInit {
     })
   }
   copyInvitationLink(code: string) {
+    console.log(code)
     const el = document.createElement('textarea');
     el.value = code;
     el.setAttribute('readonly', '');
@@ -69,5 +66,14 @@ export class TableViewComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(el);
     this.toastr.success('Link copied', 'Success');
+  }
+  openPopup(modalId) {
+    let id = '#' + modalId;
+    this.currentModalId = modalId;
+    $(id).modal({ show: true, backdrop: 'static', keyboard: false });
+  }
+  closePopup(modalId) {
+    let id = '#' + modalId;
+    $(id).modal('hide');
   }
 }
