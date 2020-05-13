@@ -5,7 +5,7 @@ import { LayoutComponent, AuthService } from '@app/core';
 
 const routes: Routes = [{
   path: '',
-  redirectTo: '/login',
+  redirectTo: '/dashboard',
   pathMatch: 'full'
 },
 {

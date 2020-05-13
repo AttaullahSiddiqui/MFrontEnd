@@ -69,7 +69,7 @@ export class PendingComponent implements OnInit {
     }
     this.isRequestPending = true;
     this.http.put('bank-details/update', value).then((result: Response) => {
-      console.log("result ---", result.body.data);
+      // console.log("result ---", result.body.data);
       let data = result.body.data;
       if (data.type == 'insert') {
         this.bankDetailsForm.patchValue({

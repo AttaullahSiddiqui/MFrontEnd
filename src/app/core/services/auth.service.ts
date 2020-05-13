@@ -34,15 +34,30 @@ export class AuthService implements CanActivate, Resolve<any> {
           if(result){
             return resolve(true);
           }
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/paymentapproval']);
           return resolve(false);
         }else{
           if(user.isProfileComplete && user.isMobileVerified){
-            if(state.url == '/compelete-profile' || state.url == '/phone-verification'){
+            if(user.accountStatus == 'notset'){
+              if(state.url == '/payment/manual'){
+                return resolve(true);
+              }
+              this.router.navigate(['/payment/manual']);
+              return resolve(false);
+            }else if(user.accountStatus == 'pending' || user.accountStatus == 'rejected' || user.accountStatus == 'locked'){
+              if(state.url.includes('/account-status/')){
+                return resolve(true);
+              }
+              this.router.navigate(['/account-status/'+user.accountStatus]);
+              return resolve(false);
+            }else{
+              let result = this.userRoutes.includes(state.url);
+              if(result){
+                return resolve(true);
+              }
               this.router.navigate(['/dashboard']);
               return resolve(false);
             }
-            return resolve(true);
           }
           else if(user.isProfileComplete){
             if(!user.isMobileVerified){

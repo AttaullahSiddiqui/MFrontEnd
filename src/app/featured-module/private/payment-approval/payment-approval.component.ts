@@ -24,7 +24,7 @@ export class PaymentApprovalComponent implements OnInit {
     this.http.get('payments/payment-records').then((result: Response) => {
       if (result.body.data && result.body.data.length > 0) {
         this.paymentRecords = result.body.data;
-        console.log(this.paymentRecords)
+        // console.log(this.paymentRecords)
         for (var key in this.paymentRecords) {
           if (this.paymentRecords.hasOwnProperty(key)) {
             this.paymentRecords[key]['activate'] = false;

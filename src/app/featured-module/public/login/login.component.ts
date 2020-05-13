@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]]
     })
     this.authService.authState.subscribe((user: SocialUser) => {
-      console.log(user);
       if (user && user.id) {
         this.socialAuth(user)
       }

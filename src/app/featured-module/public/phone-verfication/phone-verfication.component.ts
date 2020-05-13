@@ -36,7 +36,7 @@ export class PhoneVerficationComponent implements OnInit {
     this.isRequestPending = true;
     this.http.post('user/verify-phone', value).then(success =>{
       this.isRequestPending = false;
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['/payment/manual'])
     }).catch((err: Response) => {
       this.isRequestPending = false;
       if(err.status == 409){
