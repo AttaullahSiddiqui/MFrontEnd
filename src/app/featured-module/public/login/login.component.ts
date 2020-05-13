@@ -52,10 +52,15 @@ export class LoginComponent implements OnInit {
       if(result.user.userType == 'admin'){
         url = "/paymentapproval";
       }else{
+        let accountStatus = result.user.accountStatus;
         if(!result.user.isProfileComplete){
           url = '/compelete-profile';
         }else if(!result.user.isMobileVerified){
           url = '/phone-verification';
+        }else if(accountStatus == 'notset'){
+          url = '/payment/manual';
+        }else if(accountStatus == 'pending' || accountStatus == 'rejected' || accountStatus == 'locked'){
+          url = '/account-status/'+accountStatus;
         }
       }
       this.router.navigate([url])
@@ -77,10 +82,15 @@ export class LoginComponent implements OnInit {
       let result = success.body.data;
       this.util.setCookie('authToken', result.accessToken, { expireDays: 30 });
       let url = "/dashboard";
-      if (!result.user.isProfileComplete) {
+      let accountStatus = result.user.accountStatus;
+      if(!result.user.isProfileComplete){
         url = '/compelete-profile';
-      } else if (!result.user.isMobileVerified) {
+      }else if(!result.user.isMobileVerified){
         url = '/phone-verification';
+      }else if(accountStatus == 'notset'){
+        url = '/payment/manual';
+      }else if(accountStatus == 'pending' || accountStatus == 'rejected' || accountStatus == 'locked'){
+        url = '/account-status/'+accountStatus;
       }
       this.router.navigate([url])
     }).catch((err: Response) => {

@@ -9,9 +9,10 @@ import { CompleteProfileComponent } from './complete-profile/complete-profile.co
 import { PhoneVerficationComponent } from './phone-verfication/phone-verfication.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { Ng2TelInputModule } from 'ng2-tel-input';
+import { AccountStatusComponent } from './account-status/account-status.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, CompleteProfileComponent, PhoneVerficationComponent, NotFound404Component],
+  declarations: [LoginComponent, SignupComponent, CompleteProfileComponent, PhoneVerficationComponent, NotFound404Component, AccountStatusComponent],
   imports: [
     CommonModule,
     PublicRoutingModule,

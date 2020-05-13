@@ -4,10 +4,19 @@
             <img class="logo" src="assets/Logo.png" alt="logo">
             <hr>
             <img class="list" id="list" src="assets/Big/Navbar-menu.png" alt="list" >
-            <li class="active"> <img class="side-link text-center cs-pointer" src="assets/Big/Dashboard.png" alt="logo" routerLink="/dashboard"></li> 
-            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Menu.png" alt="" routerLink="/company"></li> 
-            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/group.png" alt="" routerLink="/direct-referrals/table-view"></li> 
-            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Credit-card.png" alt="" routerLink="/withdraw"></li> 
+            <span  *ngIf="user.accountStatus == 'approved'">
+                <li class="active"> <img class="side-link text-center cs-pointer" src="assets/Big/Dashboard.png" alt="logo" routerLink="/dashboard"></li> 
+                <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Menu.png" alt="" routerLink="/company"></li> 
+                <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/group.png" alt="" routerLink="/direct-referrals/table-view"></li> 
+                <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Credit-card.png" alt="" routerLink="/withdraw"></li> 
+            </span>
+            <span  *ngIf="user.accountStatus == 'notset'">
+                <li class="active"> <img class="side-link text-center cs-pointer" src="assets/Big/Lock.png" alt="logo" routerLink="/payment/manual"></li> 
+                <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Lock.png" alt="" routerLink="/payment/manual"></li> 
+                <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Lock.png" alt="" routerLink="/payment/manual"></li> 
+                <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Lock.png" alt="" routerLink="/payment/manual"></li> 
+            </span>
+            
         </div>
         <div class="icon-bar" id="icon-bar" *ngIf="user.userType == 'admin'">
             <img class="logo" src="assets/Logo.png" alt="logo">

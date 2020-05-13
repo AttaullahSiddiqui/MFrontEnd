@@ -8,7 +8,7 @@ import { CompleteProfileComponent } from './complete-profile/complete-profile.co
 import { PhoneVerficationComponent } from './phone-verfication/phone-verfication.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
-import { HomeModule } from './home/home.module';
+import { AccountStatusComponent } from './account-status/account-status.component';
 
 const routes: Routes = [{
   path: 'login',
@@ -22,8 +22,7 @@ const routes: Routes = [{
   path: 'compelete-profile',
   component: CompleteProfileComponent,
   canActivate: [AuthService]
-}
-  ,
+},
 {
   path: 'phone-verification',
   component: PhoneVerficationComponent,
@@ -36,9 +35,10 @@ const routes: Routes = [{
 {
   path: 'home',
   loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-},
-
-{
+},{
+  path: 'account-status/:type',
+  component: AccountStatusComponent
+},{
   path: 'not-found',
   component: NotFound404Component
 }];

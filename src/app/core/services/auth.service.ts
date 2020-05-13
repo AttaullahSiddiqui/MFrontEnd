@@ -8,6 +8,9 @@ import { UtilityService } from '@app/core/services/utility.service';
 })
 export class AuthService implements CanActivate, Resolve<any> {
 
+  private adminRoutes = ["/paymentapproval", "/withdraw-approval", "/withdrawmethods", "/plans", "/pending", "/direct-referrals/table-view", "/comission-setting"];
+  private userRoutes = ["/dashboard", "/company", "/direct-referrals/table-view", "/withdraw"];
+
   private loginUser;
 
   constructor(
@@ -27,7 +30,12 @@ export class AuthService implements CanActivate, Resolve<any> {
         let user = result.body.data;
         this.loginUser = user;
         if(user.userType == 'admin'){
-          return resolve(true);
+          let result = this.adminRoutes.includes(state.url);
+          if(result){
+            return resolve(true);
+          }
+          this.router.navigate(['/dashboard']);
+          return resolve(false);
         }else{
           if(user.isProfileComplete && user.isMobileVerified){
             if(state.url == '/compelete-profile' || state.url == '/phone-verification'){
