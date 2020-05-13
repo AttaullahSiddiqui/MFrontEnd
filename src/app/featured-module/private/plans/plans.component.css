@@ -16,7 +16,15 @@
   margin-left: 60px;
   margin-right: 60px;
 }
+.myround{ 
 
+  color:#F0A30D ;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500; 
+  text-decoration: none; 
+  
+}
 /*==========================modal work-----------------------------*/
 .modal-title{
   font-weight: bold;
