@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WithdrawApprovalComponent } from './withdraw-approval.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthService } from '@app/core';
+import { WithdrawApprovalComponent } from './withdraw-approval.component';
 
 const routes: Routes = [{
   path: '',
-  component: WithdrawApprovalComponent
+  component: WithdrawApprovalComponent,
+  canActivate: [AuthService]
 }];
 
 

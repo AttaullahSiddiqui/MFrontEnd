@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PaymentSlectionComponent } from './payment-slection.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthService } from '@app/core';
+import { PaymentSlectionComponent } from './payment-slection.component';
 
 const routes: Routes = [{
   path: '',
-  component: PaymentSlectionComponent
+  component: PaymentSlectionComponent,
+  canActivate: [AuthService]
 }];
 
 

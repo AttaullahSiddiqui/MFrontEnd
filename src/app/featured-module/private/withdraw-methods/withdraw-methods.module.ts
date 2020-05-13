@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WithdrawMethodsComponent } from './withdraw-methods.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthService } from '@app/core';
+import { WithdrawMethodsComponent } from './withdraw-methods.component';
 
 const routes: Routes = [{
   path: '',
-  component: WithdrawMethodsComponent
+  component: WithdrawMethodsComponent,
+  canActivate: [AuthService]
 }];
 
 @NgModule({
