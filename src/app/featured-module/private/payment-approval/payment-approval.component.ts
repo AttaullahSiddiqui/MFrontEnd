@@ -51,7 +51,7 @@ export class PaymentApprovalComponent implements OnInit {
       }
     }
     this.modifiedIdArray = { ...val };
-    delete this.modifiedIdArray['userId']
+    this.modifiedIdArray['userId'] = val.userId._id;
   }
   updatePayments(statusTxt: string) {
     if (this.isRequestPending) return;
@@ -63,6 +63,7 @@ export class PaymentApprovalComponent implements OnInit {
       this.showList = false;
       for (var key in this.paymentRecords) {
         if (this.paymentRecords.hasOwnProperty(key)) {
+          this.paymentRecords[key].disable = false;
           if (this.modifiedIdArray._id == this.paymentRecords[key]._id) this.paymentRecords[key].status = statusTxt;
         }
       }
