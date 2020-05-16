@@ -10,7 +10,7 @@ import { environment } from '@env/environment';
 })
 export class PaymentApprovalComponent implements OnInit {
   paymentRecords: any = {};
-  modifiedIdArray = [];
+  modifiedIdArray;
   isRequestPending: Boolean = false;
   showList: Boolean = false;
   baseUrl = environment.rootUrl;
@@ -37,13 +37,21 @@ export class PaymentApprovalComponent implements OnInit {
     })
   }
   logCheckbox(val: any) {
-    if (val.activate) this.modifiedIdArray.push(val._id)
-    else {
-      const index: number = this.modifiedIdArray.indexOf(val._id);
-      if (index !== -1) {
-        this.modifiedIdArray.splice(index, 1);
+    if (val.activate) {
+      for (var key in this.paymentRecords) {
+        if (this.paymentRecords.hasOwnProperty(key)) {
+          if (val._id != this.paymentRecords[key]._id) this.paymentRecords[key].disable = true;
+        }
+      }
+    } else {
+      for (var key in this.paymentRecords) {
+        if (this.paymentRecords.hasOwnProperty(key)) {
+          this.paymentRecords[key].disable = false;
+        }
       }
     }
+    this.modifiedIdArray = { ...val };
+    delete this.modifiedIdArray['userId']
   }
   updatePayments(statusTxt: string) {
     if (this.isRequestPending) return;
@@ -55,11 +63,10 @@ export class PaymentApprovalComponent implements OnInit {
       this.showList = false;
       for (var key in this.paymentRecords) {
         if (this.paymentRecords.hasOwnProperty(key)) {
-          var index = this.modifiedIdArray.indexOf(this.paymentRecords[key]._id);
-          if (index != -1) this.paymentRecords[key].status = statusTxt;
+          if (this.modifiedIdArray._id == this.paymentRecords[key]._id) this.paymentRecords[key].status = statusTxt;
         }
       }
-      this.modifiedIdArray = [];
+      this.modifiedIdArray = null;
       setTimeout(() => {
         this.showList = true
       }, 500);
