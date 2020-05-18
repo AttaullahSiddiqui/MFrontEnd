@@ -1,4 +1,4 @@
-/*------------------------------------------------------------ */
+/* 
 .icon-bar {
   width: 90px;
   height: 100% !important;
@@ -13,7 +13,7 @@
 }
 .logo {
     padding: 15px 20px 10px 15px ;
-  /* margin-bottom: 90px; */
+
 }
 .list {
     margin-bottom: 55px;
@@ -21,12 +21,67 @@
 }
 .active , .side-item{
     margin-bottom: 10px;
+    
+ 
 }
 .side-link {
-    margin: 10px 30px 10px 25px;
+    margin-left: 0px;
+    padding-left: 23px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     outline: none;
-    /* padding: 15px 30px 10px 25px ; */
+
 }
 .icon-bar .active > .side-link{
     border-left: 4px solid #F0A30D;  
+} */
+
+
+
+
+.current {
+    
+    border-left: 4px solid orange;
+
 }
+
+a {
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.icon-bar {
+    width: 90px;
+    height: 100% !important;
+    background-color: #ffff;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .logo {
+    padding: 15px 20px 10px 15px ;
+ 
+}
+.list {
+    margin-bottom: 55px;
+    padding: 15px 33px 10px 32px;
+}
+.side-link {
+    margin-left: 0px;
+    padding-left: 27px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    outline: none;
+   
+}
+.side-item{
+    margin-bottom: 10px;
+    
+ 
+}
+
+
