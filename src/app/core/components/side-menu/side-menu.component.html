@@ -18,17 +18,47 @@
             </span>
             
         </div>
-        <div class="icon-bar" id="icon-bar" *ngIf="user.userType == 'admin'">
+        <!-- <div class="icon-bar" id="icon-bar" *ngIf="user.userType == 'admin'">
             <img class="logo" src="assets/Logo.png" alt="logo">
             <hr>
             <img class="list" id="list" src="assets/Big/Navbar-menu.png" alt="list" >
-            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Payment Approv.png" alt="" routerLink="/paymentapproval"></li> 
-            <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Withdraw Approv.png" alt="" routerLink="/withdraw-approval"></li> 
+            
+            <div id="menu"> 
+          
+            <li class="side-item active" ><a class="current"> <img class="side-link text-center cs-pointer" src="assets/Big/Payment Approv.png" alt="" routerLink="/paymentapproval"></a></li> 
+            <li class="side-item"><a>   <img class="side-link text-center cs-pointer" src="assets/Big/Withdraw Approv.png" alt="" routerLink="/withdraw-approval"> </a></li> 
             <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Withdraw Methods.png" alt="" routerLink="/withdrawmethods"></li> 
             <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Menu.png" alt="" routerLink="/plans"></li> 
             <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Hourglass.png" alt="" routerLink="/pending"></li> 
             <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/group.png" alt="" routerLink="/direct-referrals/table-view"></li> 
             <li class="side-item"> <img class="side-link text-center cs-pointer" src="assets/Big/Gear 1.png" alt="" routerLink="/comission-setting"></li> 
+          
+          </div>
+          
+        
+          
+          
+
+        </div> -->
+        <div class="icon-bar" id="icon-bar" *ngIf="user.userType == 'admin'">
+            <img class="logo" src="assets/Logo.png" alt="logo">
+            <hr>
+            <img class="list" id="list" src="assets/Big/Navbar-menu.png" alt="list" >
+            
+        
+            <div id="menu" >
+                
+                <li class="side-item"><a class=" current" > <img class="side-link text-center cs-pointer" src="assets/Big/Payment Approv.png" alt=""  routerLink="/paymentapproval" ></a></li>
+                <li ><a><img class="side-link text-center cs-pointer" src="assets/Big/Withdraw Methods.png" alt="" routerLink="/withdraw-approval"></a></li>
+                <li><a>  <img class="side-link text-center cs-pointer" src="assets/Big/Menu.png" alt=""  routerLink="/withdrawmethods"></a></li>
+                <li><a>  <img class="side-link text-center cs-pointer" src="assets/Big/Hourglass.png" alt="" routerLink="/plans"></a></li>
+                <li><a>   <img class="side-link text-center cs-pointer" src="assets/Big/group.png" alt="" routerLink="/pending"></a></li>
+                <li><a>  <img class="side-link text-center cs-pointer" src="assets/Big/Hourglass.png" alt="" routerLink="/direct-referrals/table-view" ></a></li>
+                <li><a>   <img class="side-link text-center cs-pointer" src="assets/Big/Gear 1.png" alt="" routerLink="/comission-setting"></a></li>
+         
+                </div>
+          
+    
         </div>
     </div>
 </div>

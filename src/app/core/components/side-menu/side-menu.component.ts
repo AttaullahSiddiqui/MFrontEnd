@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+declare var $:any;
+
 
 @Component({
   selector: 'app-side-menu',
@@ -12,15 +14,12 @@ export class SideMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    $('#menu li a').on('click', function(){
+      $('li a.current').removeClass('current');
+      $(this).addClass('current');
+  });
   }
 
-  openNav() {
-    document.getElementById("mySidepanel").style.width = "250px";
-  }
-  
-  closeNav() {
-    document.getElementById("mySidepanel").style.width = "0";
-  }
  
 
 }
