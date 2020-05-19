@@ -1,37 +1,47 @@
 <div class="container-fluid">
     <div class="row rhide" style="margin-left: 90px; ">
-        
-        <div class="col-md-7  " style="padding-bottom:60px ; padding-left: 40px; padding-right: 40px; background-color: #f7f7f7;">
 
-            <form class=" pt-5  pl-5 pr-5  " action="#!">
+        <div class="col-md-7  "
+            style="padding-bottom:60px ; padding-left: 40px; padding-right: 40px; background-color: #f7f7f7;">
+
+            <form class=" pt-5  pl-5 pr-5  " [formGroup]="withDrawForm"
+                (ngSubmit)="!isRequestPending && sendWithdrawRequest(withDrawForm.valid, withDrawForm.value)">
 
                 <p class="h1 font-weight-bold mb-4 ">Withdraw</p>
 
                 <p class=" mb-4" style="color: orange;">View payment history</p>
 
-                <label class="fontupdate font-weight-bold text-uppercase  mb-1" for="exampleFormControlSelect1">withdrawal method</label>
-                <select class="form-control mb-4" id="exampleFormControlSelect1 ">
-                    <option selected> Cash Mall</option>
+                <label class="fontupdate font-weight-bold text-uppercase  mb-1"
+                    for="exampleFormControlSelect1">Withdrawal method</label>
+                <select class="form-control mb-4" id="exampleFormControlSelect1" formControlName="method">
+                    <option selected>Cash Mall</option>
                     <option>2</option>
                     <option>3</option>
 
                 </select>
 
-                <label class="fontupdate font-weight-bold text-uppercase mb-1" for="exampleFormControlInput1">bank title</label>
-                <input type="name" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="  Title Here">
+                <label class="fontupdate font-weight-bold text-uppercase mb-1" for="exampleFormControlInput1">bank
+                    title</label>
+                <input type="name" id="defaultSubscriptionFormEmail" class="form-control mb-4"
+                    formControlName="bankDetail" placeholder="  Title Here">
 
-                <label class="fontupdate font-weight-bold text-uppercase mb-1" for="exampleFormControlInput1">Account number</label>
-                <input type="name" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="  00000000000">
+                <label class="fontupdate font-weight-bold text-uppercase mb-1" for="exampleFormControlInput1">Account
+                    number</label>
+                <input type="name" id="defaultSubscriptionFormEmail" class="form-control mb-4"
+                    formControlName="accountNumber" placeholder="  00000000000">
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label class="fontupdate font-weight-bold text-uppercase mb-1" for="exampleFormControlInput1">Amout</label>
-                        <input  type="number" name="quantity" min="1" max="5" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="  0$">
+                        <label class="fontupdate font-weight-bold text-uppercase mb-1"
+                            for="exampleFormControlInput1">Amout</label>
+                        <input type="number" name="quantity" min="1" max="5" id="defaultSubscriptionFormEmail"
+                            class="form-control mb-4" placeholder="  0$" formControlName="amount">
                     </div>
 
                 </div>
 
-                <button class="btn btn-war btn-block text-white pt-2 pb-2 mt-2 mb-4" type="submit" style="background-color: #f0a30d;"><b>Submit</b></button>
+                <button class="btn btn-war btn-block text-white pt-2 pb-2 mt-2 mb-4" type="submit"
+                    style="background-color: #f0a30d;"><b>Submit</b></button>
 
             </form>
 
@@ -44,29 +54,30 @@
             <hr class="decor">
             <p class="mb-4" style="color: orange;">Upgrade your plan
                 <svg width="10" height="15" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 2.4375L5 16.5M1 5.01562L2.33333 3.84375L5 1.5L7.66667 3.84375L9 5.01563" stroke="#F0A30D" stroke-width="1.3" />
+                    <path d="M5 2.4375L5 16.5M1 5.01562L2.33333 3.84375L5 1.5L7.66667 3.84375L9 5.01563"
+                        stroke="#F0A30D" stroke-width="1.3" />
                 </svg>
             </p>
             <h3>Info</h3>
             <hr class="decor">
             <div style="display:flex;">
                 <p style="flex: 1; font-weight: 500;">Your Balance </p>
-                <p style=" float: left; ">$450 050</p>
+                <p style=" float: left; ">{{accountInfo.balance}}</p>
             </div>
             <hr class="decor">
             <div style="display:flex;">
                 <p style="flex: 1; font-weight: 500;">Credit </p>
-                <p style=" float: left; ">$450 050</p>
+                <p style=" float: left; ">{{accountInfo.credit}}</p>
             </div>
             <hr class="decor">
             <div style="display:flex;">
                 <p style="flex: 1; font-weight: 500;">Debit </p>
-                <p style=" float: left; ">$450 050</p>
+                <p style=" float: left; ">{{accountInfo.debit}}</p>
             </div>
             <hr class="decor">
             <div style="display:flex;">
                 <p style="flex: 1; font-weight: 500;">Withdraw</p>
-                <p style=" float: left; ">$1677 085</p>
+                <p style=" float: left; ">{{accountInfo.withDraw}}</p>
             </div>
             <hr class="decor">
 

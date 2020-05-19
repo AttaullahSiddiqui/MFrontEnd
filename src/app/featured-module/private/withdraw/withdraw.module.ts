@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '@app/core';
 import { WithdrawComponent } from './withdraw.component';
 
@@ -14,7 +15,9 @@ const routes: Routes = [{
   declarations: [WithdrawComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class WithdrawModule { }

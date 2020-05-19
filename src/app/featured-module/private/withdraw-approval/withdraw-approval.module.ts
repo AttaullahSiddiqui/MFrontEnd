@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from '@app/core';
 import { WithdrawApprovalComponent } from './withdraw-approval.component';
+import { FilterPipe } from './filter.pipe';
 
 const routes: Routes = [{
   path: '',
@@ -12,7 +13,7 @@ const routes: Routes = [{
 
 
 @NgModule({
-  declarations: [WithdrawApprovalComponent],
+  declarations: [WithdrawApprovalComponent, FilterPipe],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)

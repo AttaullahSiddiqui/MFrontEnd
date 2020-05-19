@@ -17,67 +17,67 @@ export class AuthService implements CanActivate, Resolve<any> {
     private http: HttpService,
     private utility: UtilityService,
     private router: Router
-    ) { }
+  ) { }
 
-   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> | boolean{
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> | boolean {
     const authorizationToken = this.utility.getCookie('authToken');
-    if(!authorizationToken){
+    if (!authorizationToken) {
       this.router.navigate(['/login']);
       return false;
     }
     return new Promise((resolve, reject) => {
-      this.http.get('user/me').then( (result: Response) => {
+      this.http.get('user/me').then((result: Response) => {
         let user = result.body.data;
         this.loginUser = user;
-        if(user.userType == 'admin'){
+        if (user.userType == 'admin') {
           let result = this.adminRoutes.includes(state.url);
-          if(result){
+          if (result) {
             return resolve(true);
           }
           this.router.navigate(['/paymentapproval']);
           return resolve(false);
-        }else{
-          if(user.isProfileComplete && user.isMobileVerified){
-            if(user.accountStatus == 'notset'){
-              if(state.url == '/payment/manual'){
+        } else {
+          if (user.isProfileComplete && user.isMobileVerified) {
+            if (user.accountStatus == 'notset') {
+              if (state.url == '/payment/manual') {
                 return resolve(true);
               }
               this.router.navigate(['/payment/manual']);
               return resolve(false);
-            }else if(user.accountStatus == 'pending' || user.accountStatus == 'rejected' || user.accountStatus == 'locked'){
-              if(state.url.includes('/account-status/')){
+            } else if (user.accountStatus == 'pending' || user.accountStatus == 'rejected' || user.accountStatus == 'locked') {
+              if (state.url.includes('/account-status/')) {
                 return resolve(true);
               }
-              this.router.navigate(['/account-status/'+user.accountStatus]);
+              this.router.navigate(['/account-status/' + user.accountStatus]);
               return resolve(false);
-            }else{
+            } else {
               let result = this.userRoutes.includes(state.url);
-              if(result){
+              if (result) {
                 return resolve(true);
               }
               this.router.navigate(['/dashboard']);
               return resolve(false);
             }
           }
-          else if(user.isProfileComplete){
-            if(!user.isMobileVerified){
-              if(state.url == '/phone-verification'){
+          else if (user.isProfileComplete) {
+            if (!user.isMobileVerified) {
+              if (state.url == '/phone-verification') {
                 return resolve(true);
-               }else{
-                 this.router.navigate(['/phone-verification']);
-                 return resolve(false);
-               }
+              } else {
+                this.router.navigate(['/phone-verification']);
+                return resolve(false);
+              }
             }
-          }else{
-            if(state.url == '/compelete-profile'){
+          } else {
+            if (state.url == '/compelete-profile') {
               return resolve(true);
-             }else{
-               this.router.navigate(['/compelete-profile']);
-               return resolve(false);
-             }
+            } else {
+              this.router.navigate(['/compelete-profile']);
+              return resolve(false);
+            }
           }
         }
-      }).catch( (error: Response) => {
+      }).catch((error: Response) => {
         this.router.navigate(['/login']);
         resolve(false);
       })

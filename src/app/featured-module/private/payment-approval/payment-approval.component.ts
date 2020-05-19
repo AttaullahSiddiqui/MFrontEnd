@@ -43,15 +43,16 @@ export class PaymentApprovalComponent implements OnInit {
           if (val._id != this.paymentRecords[key]._id) this.paymentRecords[key].disable = true;
         }
       }
+      this.modifiedIdArray = { ...val };
+      this.modifiedIdArray['userId'] = val.userId._id;
     } else {
       for (var key in this.paymentRecords) {
         if (this.paymentRecords.hasOwnProperty(key)) {
           this.paymentRecords[key].disable = false;
         }
       }
+      this.modifiedIdArray = null
     }
-    this.modifiedIdArray = { ...val };
-    this.modifiedIdArray['userId'] = val.userId._id;
   }
   updatePayments(statusTxt: string) {
     if (this.isRequestPending) return;

@@ -99,7 +99,21 @@ th{
   padding: 10px;
 }
 
-
+.approve svg path{
+  fill: green !important;
+}
+.approve svg text{
+  fill: green !important;
+}
+.reject svg path{
+  fill: red !important;
+}
+.reject svg text{
+  fill: red !important;
+}
+.reject:hover,.approve:hover{
+  cursor: pointer;
+}
 
 
 /**-----------------media queriesss----------------/
