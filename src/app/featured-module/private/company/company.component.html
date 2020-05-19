@@ -1,7 +1,6 @@
 <div class="container-fluid">
     <div class="row " style="margin-left: 70px;">
         <div class="col-md-8" style=" background-color: #f7f7f7; height: 100vh" *ngIf="planData">
-
             <div class="row pb-5 pt-5 pl-5">
                 <h2> <b>Company State</b></h2>
             </div>
@@ -20,7 +19,6 @@
                 </ul>
             </div>
             <div class="row smalledit1 pb-5 pt-3 pl-5">
-
                 <div class="col-md-11">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
@@ -43,8 +41,9 @@
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let item of round.value.registered | keyvalue;index as i">
-                                                <th scope="row" style=" font-weight: 200;">{{item.value.userId}}</th>
-                                                <td> Darrel Watson</td>
+                                                <th scope="row" style=" font-weight: 200;">{{item.value.userId._id}}
+                                                </th>
+                                                <td> {{item.value.userId.fullName}}</td>
                                                 <td><span *ngIf="i==0" class="debititem">ACTIVE</span>
                                                     <span *ngIf="i!=0" class="debititem1">Awaiting</span></td>
 
@@ -76,108 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="row smalledit1 pb-5 pt-3 pl-5">
-
-            <div class="col-md-11">
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                        aria-labelledby="pills-home-tab">
-
-                        <h4 class="heading">Round 1</h4>
-                        <p class="heading1">Total user 3445 | Auto filling</p>
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" style="border-top: none; ">ID</th>
-                                        <th scope="col" style="border-top: none;">NAME</th>
-                                        <th scope="col" style="border-top: none;">TYPE</th>
-                                        <th scope="col" style="border-top: none;">PROGRESS</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" style=" font-weight: 200;">1435</th>
-                                        <td> Darrel Watson</td>
-                                        <td><span class="debititem">ACTIVE</span></td>
-
-                                        <td style="padding-top: 6px;">
-                                            <div style="color: orange;"><b>20%</b></div>
-                                            <div class="progress">
-
-                                                <div class="bar" style="width:35%">
-                                                </div>
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" style=" font-weight: 200;">1434</th>
-                                        <td>Calvin Webb</td>
-                                        <td><span class="debititem1">Awaiting</span></td>
-
-                                        <td>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" style=" font-weight: 200;">1433</th>
-                                        <td>Randall Williamson</td>
-                                        <td><span class="debititem1">Awaiting</span></td>
-
-                                        <td>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" style=" font-weight: 200;">1432</th>
-                                        <td>Leslie Flores</td>
-                                        <td><span class="debititem1">Awaiting</span></td>
-
-                                        <td>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" style="font-weight: 200;">1431</th>
-                                        <td>Darlene Mccoy</td>
-                                        <td><span class="debititem1">Awaiting</span></td>
-
-                                        <td>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-4 p-5 mt-5 ">
-
-
-        <h3>Info</h3>
-        <hr class="decor">
-        <div style="display:flex;">
-            <p style="flex: 1; font-weight: 500;">Your Id </p>
-            <p style=" float: left; font-weight: 100; ">100</p>
-            >>>>>>> cfffa5bcc318d96f771a19604e134c3076dbb2b8
-        </div>
         <div class="col-md-4 p-5 mt-5 ">
-
-
             <h3>Info</h3>
             <hr class="decor">
             <div style="display:flex;">
@@ -191,8 +89,6 @@
             </div>
             <hr class="decor">
 
-
-
             <p class="mb-4" style="color: orange;">
                 <svg width="179" height="20" viewBox="0 0 179 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g opacity="0.8">
@@ -203,9 +99,7 @@
                             fill="#F0A30D" />
                     </g>
                 </svg>
-
             </p>
-
         </div>
     </div>
 </div>

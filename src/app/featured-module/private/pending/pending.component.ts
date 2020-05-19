@@ -84,6 +84,4 @@ export class PendingComponent implements OnInit {
       this.toastr.error("Error in saving Details", 'Error');
     })
   }
-
-
 }
