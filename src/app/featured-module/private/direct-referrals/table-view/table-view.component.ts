@@ -48,8 +48,8 @@ export class TableViewComponent implements OnInit {
   }
   fetchCurrentUser() {
     this.http.get('user/me').then((result: Response) => {
-      // this.invitationForm.patchValue({ inviteLink: 'http://abc.mmcgbl.com/login/' + result.body.data._id });
-      this.invitationForm.patchValue({ inviteLink: 'localhost:4200/login/' + result.body.data._id });
+      // this.invitationForm.patchValue({ inviteLink: 'http://abc.mmcgbl.com/home/' + result.body.data._id });
+      this.invitationForm.patchValue({ inviteLink: 'localhost:4200/home/' + result.body.data._id });
     }).catch((error: Response) => {
       this.toastr.error("Problem with your internet connection", 'Error')
     })
