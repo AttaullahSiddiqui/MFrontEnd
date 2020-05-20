@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService, UtilityService, Response } from '@app/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -19,6 +20,7 @@ export class ManualPaymentComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private http: HttpService,
     private util: UtilityService,
+    private router: Router,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -83,6 +85,7 @@ export class ManualPaymentComponent implements OnInit {
       this.isRequestPending = false;
       this.isFormSubmit = false;
       this.toastr.success('Deposit slip saved', 'Success');
+      this.router.navigate(['/account-status/pending']);
     }).catch((error: Response) => {
       this.toastr.error("Unable to save deposit slip", 'Error');
       this.isRequestPending = false;

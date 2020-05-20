@@ -87,7 +87,8 @@ export class CompleteProfileComponent implements OnInit {
     this.isRequestPending = true;
     this.http.post('user/complete-profile', value).then(success =>{
       this.isRequestPending = false;
-      this.router.navigate(['/phone-verification'])
+      // this.router.navigate(['/phone-verification'])
+      this.router.navigate(['/payment/manual'])
     }).catch((err: Response) => {
       this.isRequestPending = false;
       this.serverMsg = "Unexpected error";

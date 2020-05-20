@@ -30,11 +30,11 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     })
-    this.authService.authState.subscribe((user: SocialUser) => {
-      if (user && user.id) {
-        this.socialAuth(user)
-      }
-    });
+    // this.authService.authState.subscribe((user: SocialUser) => {
+    //   if (user && user.id) {
+    //     //this.socialAuth(user)
+    //   }
+    // });
   }
 
   signIn(valid, value) {
@@ -70,10 +70,10 @@ export class LoginComponent implements OnInit {
   }
 
   signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    //this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    //this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
   socialAuth(data) {

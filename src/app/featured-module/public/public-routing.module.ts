@@ -9,8 +9,12 @@ import { PhoneVerficationComponent } from './phone-verfication/phone-verfication
 import { SignupComponent } from './signup/signup.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { AccountStatusComponent } from './account-status/account-status.component';
+import { HomeComponent } from './home';
 
 const routes: Routes = [{
+  path: '',
+  component: HomeComponent
+},{
   path: 'login',
   component: LoginComponent
 },
@@ -33,11 +37,9 @@ const routes: Routes = [{
   component: SignupComponent
 },
 {
-  path: 'home',
-  loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-},{
   path: 'account-status/:type',
-  component: AccountStatusComponent
+  component: AccountStatusComponent,
+  canActivate: [AuthService]
 },{
   path: 'not-found',
   component: NotFound404Component
