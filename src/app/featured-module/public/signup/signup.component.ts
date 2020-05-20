@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   referralId: string;
+  planId: string;
   signupForm: FormGroup
   isFormSubmit: boolean = false;
   isRequestPending: boolean = false;
@@ -27,7 +28,10 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
-      this.referralId = paramMap.get('id')
+      this.planId = paramMap.get('plan');
+      this.referralId = paramMap.get('id');
+      console.log("Id", paramMap.get('id'))
+      console.log("Plan", paramMap.get('plan'))
     })
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -46,6 +50,7 @@ export class SignupComponent implements OnInit {
     Object.assign(payload, value);
     if (this.referralId) payload['referralId'] = this.referralId;
     payload['registrationType'] = 'self';
+    payload['planId'] = this.planId;
     this.http.post('user/register', payload).then(success => {
       this.resetForm();
       this.isRequestPending = false;
@@ -62,13 +67,9 @@ export class SignupComponent implements OnInit {
       console.log("error ----", err);
     })
   }
-
   resetForm() {
     this.signupForm.reset();
     this.isFormSubmit = false;
     this.serverMsg = "";
   }
-
-
-
 }

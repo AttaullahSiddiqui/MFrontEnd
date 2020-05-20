@@ -83,10 +83,7 @@ export class AuthService implements CanActivate, Resolve<any> {
       })
     })
   }
-
   resolve() {
     return this.loginUser;
   }
-
-
 }

@@ -14,12 +14,15 @@ import { HomeComponent } from './home';
 const routes: Routes = [{
   path: 'home',
   component: HomeComponent
-},{
-  path: 'login',
+}, {
+  path: 'home/:id',
+  component: HomeComponent
+}, {
+  path: 'login/:plan',
   component: LoginComponent
 },
 {
-  path: 'login/:id',
+  path: 'login/:plan/:id',
   component: LoginComponent
 },
 {
@@ -40,7 +43,7 @@ const routes: Routes = [{
   path: 'account-status/:type',
   component: AccountStatusComponent,
   canActivate: [AuthService]
-},{
+}, {
   path: 'not-found',
   component: NotFound404Component
 }];
