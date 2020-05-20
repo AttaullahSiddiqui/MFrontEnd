@@ -12,7 +12,7 @@ import { AccountStatusComponent } from './account-status/account-status.componen
 import { HomeComponent } from './home';
 
 const routes: Routes = [{
-  path: '',
+  path: 'home',
   component: HomeComponent
 },{
   path: 'login',
