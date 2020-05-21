@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService, UtilityService } from '@app/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class SignupComponent implements OnInit {
     private http: HttpService,
     private router: Router,
     private util: UtilityService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +42,10 @@ export class SignupComponent implements OnInit {
   }
 
   register(valid, value) {
+    if (!this.planId) {
+      this.toastr.error("No plan selected for Sign Up", 'Error');
+      return;
+    }
     this.isFormSubmit = true;
     this.serverMsg = "";
     if (!valid) {

@@ -18,6 +18,9 @@ const routes: Routes = [{
   path: 'home/:id',
   component: HomeComponent
 }, {
+  path: 'login',
+  component: LoginComponent
+}, {
   path: 'login/:plan',
   component: LoginComponent
 },

@@ -17,7 +17,7 @@ export class CompanyComponent implements OnInit {
   ngOnInit(): void { this.getPlanData() }
 
   getPlanData() {
-    this.http.post('plan/getPLanData', { id: '5ec05a068b982222ec61b18c' }).then((result: Response) => {
+    this.http.get('plan/getPLanData').then((result: Response) => {
       this.planData = result.body.data;
       this.getMyData()
     }).catch((error: Response) => {
