@@ -8,7 +8,7 @@ import { UtilityService } from '@app/core/services/utility.service';
 })
 export class AuthService implements CanActivate, Resolve<any> {
 
-  private adminRoutes = ["/paymentapproval", "/withdraw-approval", "/withdrawmethods", "/plans", "/pending", "/direct-referrals/table-view", "/comission-setting"];
+  private adminRoutes = ["/paymentapproval", "/withdraw-approval", "/withdrawmethods", "/plans", "/pending", "/direct-referrals/table-view", "/comission-setting", "/coupon-codes"];
   private userRoutes = ["/dashboard", "/company", "/direct-referrals/table-view", "/withdraw", "/profile"];
 
   private loginUser;
