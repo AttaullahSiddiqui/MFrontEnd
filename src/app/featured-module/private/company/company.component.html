@@ -49,7 +49,7 @@
 
                                                 <td style="padding-top: 6px;" *ngIf="i==0">
                                                     <div style="color: orange;">
-                                                        <b><span>{{round.value.amountPaid/planData.planPrice*100}}</span>%</b>
+                                                        <b><span>{{(round.value.amountPaid/round.value.roundAmount*100).toFixed(0)}}</span>%</b>
                                                     </div>
                                                     <div class="progress">
 

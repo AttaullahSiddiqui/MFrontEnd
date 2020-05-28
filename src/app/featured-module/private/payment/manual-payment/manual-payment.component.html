@@ -67,7 +67,8 @@
                             <label class="red-text"> Please attach payment proof file </label>
                         </div>
                         <button type="submit" class="btn btn-submit btn-lg btn-block">
-                            Submit
+                            <i *ngIf="isRequestPending" class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i>
+                            &nbsp;Submit
                         </button>
                     </form>
                 </div>
