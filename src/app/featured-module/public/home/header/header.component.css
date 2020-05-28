@@ -21,7 +21,7 @@ html {
 
 .button_container {
   position: fixed;
-  top: 5%;
+  top: 4%;
   right: 2%;
   height: 27px;
   width: 35px;
@@ -69,7 +69,7 @@ html {
 
 .overlay {
   position: fixed;
-  background: rgb(255, 219, 12);
+  background: rgb(255, 203, 33);
   top: 0;
   left: 0;
   width: 100%;
@@ -82,7 +82,7 @@ html {
   overflow: hidden;
 }
 .overlay.open {
-  opacity: .9;
+  opacity: 1.9;
   visibility: visible;
   height: 100%;
 }
