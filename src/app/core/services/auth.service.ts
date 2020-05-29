@@ -22,7 +22,7 @@ export class AuthService implements CanActivate, Resolve<any> {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> | boolean {
     const authorizationToken = this.utility.getCookie('authToken');
     if (!authorizationToken) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
       return false;
     }
     return new Promise((resolve, reject) => {
