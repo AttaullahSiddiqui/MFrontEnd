@@ -78,7 +78,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col" style="border-top: none; "></th>
-                                    <th scope="col" style="border-top: none;">ID</th>
+                                    <!-- <th scope="col" style="border-top: none;">ID</th> -->
+                                    <th scope="col" style="border-top: none;">PLAN</th>
                                     <th scope="col" style="border-top: none;">NAME</th>
                                     <th scope="col" style="border-top: none;">ACCOUNT TYPE</th>
                                     <th scope="col" style="border-top: none;">COUPON CODE</th>
@@ -97,7 +98,8 @@
                                             <label class="custom-control-label" [for]="item.value._id"></label>
                                         </div>
                                     </th>
-                                    <td>{{item.value._id}}</td>
+                                    <!-- <td>{{item.value._id}}</td> -->
+                                    <td>{{item.value.planName}}</td>
                                     <td>{{item.value.userId.fullName}}</td>
 
                                     <td>{{item.value.type}}</td>
@@ -136,7 +138,8 @@
                             <thead>
                                 <tr>
                                     <!-- <th scope="col" style="border-top: none; "></th> -->
-                                    <th scope="col" style="border-top: none;">ID</th>
+                                    <!-- <th scope="col" style="border-top: none;">ID</th> -->
+                                    <th scope="col" style="border-top: none;">PLAN</th>
                                     <th scope="col" style="border-top: none;">NAME</th>
                                     <th scope="col" style="border-top: none;">ACCOUNT TYPE</th>
                                     <th scope="col" style="border-top: none;">COUPON CODE</th>
@@ -154,7 +157,8 @@
                                             <label class="custom-control-label" [for]="item.value._id"></label>
                                         </div>
                                     </th> -->
-                                    <td>{{item.value._id}}</td>
+                                    <!-- <td>{{item.value._id}}</td> -->
+                                    <td>{{item.value.planName}}</td>
                                     <td>{{item.value.userId.fullName}}</td>
                                     <td>{{item.value.type}}</td>
                                     <td class="colorGreen">{{item.value.coupon}}<svg *ngIf="!item.value.type" width="16"
@@ -190,7 +194,8 @@
                             <thead>
                                 <tr>
                                     <!-- <th scope="col" style="border-top: none; "></th> -->
-                                    <th scope="col" style="border-top: none;">ID</th>
+                                    <!-- <th scope="col" style="border-top: none;">ID</th> -->
+                                    <th scope="col" style="border-top: none;">PLAN</th>
                                     <th scope="col" style="border-top: none;">NAME</th>
                                     <th scope="col" style="border-top: none;">ACCOUNT TYPE</th>
                                     <th scope="col" style="border-top: none;">COUPON CODE</th>
@@ -208,7 +213,7 @@
                                             <label class="custom-control-label" [for]="item.value._id"></label>
                                         </div>
                                     </th> -->
-                                    <td>{{item.value._id}}</td>
+                                    <td>{{item.value.planName}}</td>
                                     <td>{{item.value.userId.fullName}}</td>
                                     <td>{{item.value.type}}</td>
                                     <td class="colorGreen">{{item.value.coupon}}<svg *ngIf="!item.value.type" width="16"
@@ -244,7 +249,8 @@
                             <thead>
                                 <tr>
                                     <!-- <th scope="col" style="border-top: none; "></th> -->
-                                    <th scope="col" style="border-top: none;">ID</th>
+                                    <!-- <th scope="col" style="border-top: none;">ID</th> -->
+                                    <th scope="col" style="border-top: none;">PLAN</th>
                                     <th scope="col" style="border-top: none;">NAME</th>
                                     <th scope="col" style="border-top: none;">ACCOUNT TYPE</th>
                                     <th scope="col" style="border-top: none;">COUPON CODE</th>
@@ -262,7 +268,7 @@
                                             <label class="custom-control-label" [for]="item.value._id"></label>
                                         </div>
                                     </th> -->
-                                    <td>{{item.value._id}}</td>
+                                    <td>{{item.value.planName}}</td>
                                     <td>{{item.value.userId.fullName}}</td>
 
                                     <td>{{item.value.type}}</td>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from '@app/core';
 import { DashboardComponent } from './dashboard.component';
+import { FilterPipe } from './filter.pipe';
 
 const routes: Routes = [{
   path: '',
@@ -11,7 +12,7 @@ const routes: Routes = [{
 }];
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, FilterPipe],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
