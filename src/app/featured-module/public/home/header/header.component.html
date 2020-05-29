@@ -1,80 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3 " style="border-bottom: 0.4px solid #F7F7F7;">
+<nav class="navbar navbar-expand-lg navbar-light pt-2 pb-2 	d-none d-xl-block d-md-block  " style="border-bottom: 0.4px solid #F7F7F7;">
     <div class="container">
         <img class="side-link text-center" src="assets/Big/MLM.CO.png" alt="">
-        <div class="outer-menu">
-            <input class="checkbox-toggle" type="checkbox"/>
-            <div class="hamburger">
-              <div></div>
-            </div>
-            <div class="menu">
-              <div>
-                <div>
-                  <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        <div class="navbar-collapse collapse" id="navbar9">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Plans</a>
+
+            <ul class=" ml-auto" style="list-style: none; display: flex; padding-top: 15px;">
+                <li class="nav-item edit  pr-2">
+                    <a class="nav-link" href="#plan">Plans</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Rounds</a>
+                <li class=" pr-3">
+                    <a class="nav-link" >Rounds</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Comission</a>
-                </li>
+                <li class="nav-item pr-3">
+                    <a class="nav-link" >Comission</a>
+                </li> 
                
-                <li class="nav-item">
-                    <a class="nav-link active" routerLink="/login">Sign in</a>
+                <li class="nav-item pr-3">
+                    <a class="nav-link active"  routerLink="/login">Sign in</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Sign up</a>
+                  <a class="nav-link" >Sign up</a>
               </li>
             </ul>
-        </div>
+      
     </div>
 </nav>
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3 " style="border-bottom: 0.4px solid #F7F7F7;">
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light pt-4 pb-4 	.d-none d-sm-block d-md-none sticky-top " style="border-bottom: 1px solid #F7F7F7; background-color: white;">
   <div class="container">
       <img class="side-link text-center" src="assets/Big/MLM.CO.png" alt="">
 
         
-      <div class="navbar-collapse collapse" id="navbar9">
-          <ul class="navbar-nav ml-auto">
-           
-             
-              <li class="nav-item">
-                <div class="outer-menu">
-                  <input class="checkbox-toggle" type="checkbox"/>
-                  <div class="hamburger">
-                    <div></div>
-                  </div>
-                  <div class="menu">
-                    <div>
-                      <div>
-                        <ul>
-                          <li><a href="#">About</a></li>
-                          <li><a href="#">Products</a></li>
-                          <li><a href="#">Blog</a></li>
-                          <li><a href="#">Contact</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-          </ul>
+      <div class="" id="navbar9">
+        <div class="button_container" id="toggle">
+          <span class="top"></span>
+          <span class="middle"></span>
+          <span class="bottom"></span>
+        </div>
+        
+        <div class="overlay" id="overlay">
+          <nav class="overlay-menu">
+            <ul>
+              <li ><a href="#">Plans</a></li>
+              <li><a href="#">Rounds</a></li>
+              <li><a href="#">Comissions</a></li>
+              <li><a href="#">Sign In</a></li>
+              <li><a href="#">Sign up</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
   </div>
 </nav>

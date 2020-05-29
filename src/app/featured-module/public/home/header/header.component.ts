@@ -35,6 +35,11 @@ export class HeaderComponent implements OnInit {
   });
 });
 
+$('#toggle').click(function() {
+  $(this).toggleClass('active');
+  $('#overlay').toggleClass('open');
+ });
+
   
   }
 

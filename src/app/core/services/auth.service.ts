@@ -8,7 +8,7 @@ import { UtilityService } from '@app/core/services/utility.service';
 })
 export class AuthService implements CanActivate, Resolve<any> {
 
-  private adminRoutes = ["/paymentapproval", "/withdraw-approval", "/withdrawmethods", "/plans", "/pending", "/direct-referrals/table-view", "/comission-setting"];
+  private adminRoutes = ["/paymentapproval", "/withdraw-approval", "/withdrawmethods", "/plans", "/pending", "/direct-referrals/table-view", "/comission-setting", "/coupon-codes"];
   private userRoutes = ["/dashboard", "/company", "/direct-referrals/table-view", "/withdraw", "/profile"];
 
   private loginUser;
@@ -22,7 +22,7 @@ export class AuthService implements CanActivate, Resolve<any> {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> | boolean {
     const authorizationToken = this.utility.getCookie('authToken');
     if (!authorizationToken) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
       return false;
     }
     return new Promise((resolve, reject) => {
