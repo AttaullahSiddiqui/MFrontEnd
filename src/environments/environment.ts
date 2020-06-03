@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  // baseUrl: 'http://localhost:5000/api/v1/',
-  // rootUrl: 'http://localhost:5000/'
-    baseUrl: 'https://abc.mmcgbl.com/api/v1/',
-  rootUrl: 'https://abc.mmcgbl.com/'
+  baseUrl: 'http://localhost:5000/api/v1/',
+  rootUrl: 'http://localhost:5000/'
+  //   baseUrl: 'https://abc.mmcgbl.com/api/v1/',
+  // rootUrl: 'https://abc.mmcgbl.com/'
 
 };
 
