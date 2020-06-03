@@ -11,7 +11,6 @@ import { PhoneVerficationComponent } from './phone-verfication/phone-verfication
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { HomeComponent, HeaderComponent, FooterComponent, MiddleComponent } from './home';
-import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
@@ -23,8 +22,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     PhoneVerficationComponent, 
     NotFound404Component, 
     AccountStatusComponent,
-    HomeComponent, HeaderComponent, FooterComponent, MiddleComponent, ResetPasswordComponent,
-    PasswordResetComponent
+    HomeComponent, HeaderComponent, FooterComponent, MiddleComponent, ResetPasswordComponent
   ],
   imports: [
     CommonModule,
