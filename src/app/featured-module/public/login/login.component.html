@@ -59,9 +59,9 @@
 
         </div>
 
-        <div class="col-md-6 p-5" style="background-color: #f7f7f7; padding-top:80px;">
+        <div class="col-md-6 p-5 " style="background-color: #f7f7f7; padding-top:80px;">
             
-            <form [formGroup]="loginForm" class="p-4" style="background-color: #f7f7f7; border: none;">
+            <form [formGroup]="loginForm" class="p-4 " style="background-color: #f7f7f7; border: none;">
 
                 <p class="h4 font-weight-bold mb-4 text-center">Already have an Account</p>
             
@@ -91,7 +91,7 @@
                     </label>
                 </div>
 
-                <p class="text-warning font-weight-bold mt-3">Forgot password</p>
+                <p class="text-warning cs-cursor font-weight-bold mt-5"  data-toggle="modal" data-target="#exampleModalCenter">Forgot password</p>
                 <div class="custom-control custom-checkbox mr-sm-2 p-4">
                     <input type="checkbox" class="custom-control-input " id="customControlAutosizing">
                     <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
@@ -116,3 +116,36 @@
     </div>
 
 </div>
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Forget Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <label class=" font-weight-bold" for="_email1">Email address</label>
+            <input type="email" id="_email1" formControlName="email"
+            [ngClass]="{'red-validation': isFormSubmit && (loginForm.controls.email.errors?.required || loginForm.controls.email.errors?.email)}"
+            class="form-control" placeholder=" E-mail">
+            <div *ngIf="isFormSubmit">
+                <label class="red-text" *ngIf="loginForm.controls.email.errors?.required">Email is required</label>
+                <label class="red-text" *ngIf="loginForm.controls.email.errors?.email">In-valid Email</label>
+            </div>
+        </div>
+ 
+        <div class="m-3">
+            <button type="button" class="btn btn-block btn-warning  text-white" >Send Email</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>

@@ -15,6 +15,12 @@
     
 
 }
+.cs-cursor{
+  cursor: pointer;
+}
+
+
+
 @media only screen and (max-width: 800px) {
   .edit {
       margin-left: auto;

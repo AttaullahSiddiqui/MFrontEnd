@@ -17,7 +17,8 @@
   animation: fontswitch 4s ease-in-out infinite;
  }
  .goback:hover {
-  cursor: w-resize;
+  cursor: pointer;
+  opacity: 0.6;
  }
  
  .bg {
