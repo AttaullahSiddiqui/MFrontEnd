@@ -1,24 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light pt-2 pb-2 	d-none d-xl-block d-md-block  " style="border-bottom: 0.4px solid #F7F7F7;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top 	d-none d-xl-block d-md-block  " id="top" style="border-bottom: 0.4px solid #F7F7F7; background-color: white;">
     <div class="container">
         <img class="side-link text-center" src="assets/Big/MLM.CO.png" alt="">
 
             <ul class=" ml-auto" style="list-style: none; display: flex; padding-top: 15px;">
-                <li class="nav-item edit  pr-2">
-                    <a class="nav-link" href="#plan">Plans</a>
+              <li class="nav-item edit  pr-2">
+                <a class="nav-link" href="#up">    <img  class="side-link text-center" height="20px"  src="assets/Big/arrow.png" alt=""> Top</a>
+            </li>
+            <li class="nav-item pr-2">
+              <a class="nav-link" href="#Aboutus" >About us</a>
+          </li> 
+            
+                <li class=" pr-2">
+                    <a class="nav-link active" href="#reff" >Refferals</a>
                 </li>
-                <li class=" pr-3">
-                    <a class="nav-link" >Rounds</a>
-                </li>
-                <li class="nav-item pr-3">
-                    <a class="nav-link" >Comission</a>
-                </li> 
+             
                
-                <li class="nav-item pr-3">
-                    <a class="nav-link active"  routerLink="/login">Sign in</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" >Sign up</a>
+                <li class="nav-item edit  pr-2">
+                  <a class="nav-link" href="#plan">Plans</a>
               </li>
+              <li class="">
+                <a class="nav-link" href="#contactus" >Contact us</a>
+            </li>
+               
+                <!-- <li class="nav-item pr-3">
+                    <a class="nav-link "  routerLink="/login">Sign in</a>
+                </li> -->
+                <li class="nav-item edit  pr-2">
+                  <a class="nav-link"  routerLink="/login">
+                    <button style="background-color:  #F0A30D; margin-top: -6px;" class="pl-3 pr-3 btn text-white " ><b>Sign in</b></button>
+                  </a>
+              </li>
+               
+
             </ul>
       
     </div>
@@ -45,6 +58,7 @@
         <div class="overlay" id="overlay">
           <nav class="overlay-menu">
             <ul>
+              
               <li ><a href="#">Plans</a></li>
               <li><a href="#">Rounds</a></li>
               <li><a href="#">Comissions</a></li>

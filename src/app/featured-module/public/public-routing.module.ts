@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { HomeComponent } from './home';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 const routes: Routes = [{
   path: 'home',
@@ -41,6 +42,10 @@ const routes: Routes = [{
 {
   path: 'signup',
   component: SignupComponent
+},
+{
+  path: 'password',
+  component: PasswordResetComponent
 },
 {
   path: 'account-status/:type',

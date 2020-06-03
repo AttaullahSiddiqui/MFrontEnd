@@ -11,6 +11,7 @@ import { PhoneVerficationComponent } from './phone-verfication/phone-verfication
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { AccountStatusComponent } from './account-status/account-status.component';
 import { HomeComponent, HeaderComponent, FooterComponent, MiddleComponent } from './home';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HomeComponent, HeaderComponent, FooterComponent, MiddleComponent } from
     PhoneVerficationComponent, 
     NotFound404Component, 
     AccountStatusComponent,
-    HomeComponent, HeaderComponent, FooterComponent, MiddleComponent
+    HomeComponent, HeaderComponent, FooterComponent, MiddleComponent, PasswordResetComponent
   ],
   imports: [
     CommonModule,

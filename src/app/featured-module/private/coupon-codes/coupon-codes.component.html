@@ -152,26 +152,33 @@
                                 <div class="container-fluid">
                                   <div class="row">
                                     <div class="col-12">
-                                      <form>
+                                      <form >
                                         <div class="row">
                                           <div class="col-6">
-                                            <label class="label" style="font-weight:400;">Plan Name</label>
-                                            <input placeholder="example@mail.com" type="text" class="form-control input-lg" >
+                                            <label class="label" style="font-weight:400;">Coupon code</label>
+                                            <input placeholder=""  formControlName="email" type="text" class="form-control input-lg"
+                                            
+                                            >
+                                      
+                                      
                                           </div>
                                           <div class="col-6">
-                                            <label class="label" style="font-weight:400;">Number of Rounds</label>
-                                            <input placeholder=""  type="text" class="form-control input-lg" >
+                                            <label class="fontupdate font-weight-bold  mb-1 " for="country">Select plan</label>
+                                            <select class="form-control" id="country" formControlName="country">
+                                              <option selected value="-1">Choose from list</option>
+                                              <option >111</option>
+                                            </select>
+                                           
                                           </div>
                                         </div>
                                         <div class="row">
                                           <div class="col-6">
-                                            <label class="label mt-2" style="font-weight:400;">Total Amount</label>
-                                            <input placeholder="$ 000" type="text" class="form-control input-lg" >
+                                            <label class="label mt-2" style="font-weight:400;">Amount</label>
+                                            <input placeholder="$ 000" type="text"  class="form-control input-lg"
+                                             >
+                                           
                                           </div>
-                                          <div class="col-6">
-                                            <label class="label mt-2" style="font-weight:400;">User Enrolled</label>
-                                            <input placeholder="000" type="text" class="form-control input-lg" >
-                                          </div>
+                                     
                                         </div>
                                       </form>
                                     </div>
