@@ -3,14 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthService } from '@app/core';
 
+import { HomeComponent } from './home';
 import { LoginComponent } from './login/login.component';
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
 import { PhoneVerficationComponent } from './phone-verfication/phone-verfication.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { AccountStatusComponent } from './account-status/account-status.component';
-import { HomeComponent } from './home';
-import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 
 const routes: Routes = [{
   path: 'home',
@@ -44,14 +45,15 @@ const routes: Routes = [{
   component: SignupComponent
 },
 {
-  path: 'password',
-  component: PasswordResetComponent
-},
-{
   path: 'account-status/:type',
   component: AccountStatusComponent,
   canActivate: [AuthService]
-}, {
+},
+{
+  path: 'reset-password',
+  component: ResetPasswordComponent
+},
+{
   path: 'not-found',
   component: NotFound404Component
 }];
