@@ -377,27 +377,30 @@
               <div class="yellow-line mt-4"></div>
 
             </div>
-            <form class="p-5">
-
-
-
+            <form class="p-5" [formGroup]="contactForm"
+              (ngSubmit)="!isRequestPending && submitContactForm(contactForm.valid, contactForm.value)">
               <div class="form-group">
                 <label class=" font-weight-bold">YOUR NAME</label>
-                <input type="text" class="form-control" name="name" required="" placeholder="" data-form-field="Name">
+                <input type="text" class="form-control" name="name" data-form-field="Name" formControlName="name"
+                  [ngClass]="{'red-validation': isFormSubmit && contactForm.controls.name.errors?.required}">
               </div>
               <div class="form-group">
                 <label class=" font-weight-bold">YOUR EMAIL</label>
-                <input type="email" class="form-control" name="email" required="" placeholder=""
-                  data-form-field="Email">
+                <input type="email" class="form-control" name="email" data-form-field="Email" formControlName="email"
+                  [ngClass]="{'red-validation': isFormSubmit && contactForm.controls.email.errors?.required}">
+                <label class="red-text" *ngIf="isFormSubmit && contactForm.controls.email.errors?.email">In-valid
+                  Email</label>
               </div>
               <div class="form-group">
                 <label class=" font-weight-bold">SUBJECT</label>
-                <input type="tel" class="form-control" name="phone" placeholder="" data-form-field="Phone">
+                <input type="tel" class="form-control" name="phone" data-form-field="Phone" formControlName="subject"
+                  [ngClass]="{'red-validation': isFormSubmit && contactForm.controls.subject.errors?.required}">
               </div>
               <div class="form-group">
                 <label class=" font-weight-bold">MESSAGE</label>
-                <textarea class="form-control" name="message" placeholder="" rows="7"
-                  data-form-field="Message"></textarea>
+                <textarea class="form-control" name="message" rows="7" data-form-field="Message"
+                  formControlName="message"
+                  [ngClass]="{'red-validation': isFormSubmit && contactForm.controls.message.errors?.required}"></textarea>
               </div>
 
               <div class="form-row mt-3 mb-5">
