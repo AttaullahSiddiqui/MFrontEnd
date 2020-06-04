@@ -50,7 +50,7 @@ const routes: Routes = [{
   canActivate: [AuthService]
 },
 {
-  path: 'reset-password',
+  path: 'reset-password/:id',
   component: ResetPasswordComponent
 },
 {

@@ -18,13 +18,22 @@
 .cs-cursor{
   cursor: pointer;
 }
-
+.save-btn{
+  background: #f0a30d;
+  border: none;
+  padding-left: 42px;
+  padding-right: 42px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-weight: 500;
+  font-size: 15px;
+  color: white;
+}
 
 
 @media only screen and (max-width: 800px) {
   .edit {
       margin-left: auto;
   } 
-
 }
   
